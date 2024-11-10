@@ -8,29 +8,47 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public bool isActiveWeapon;
     //shooting
+    [Header("shooting")]
     public bool isShooting,readyToShoot;
     bool allowReset =true;
     public float shootingDelay = 2f;
     // Brust
+    [Header("Brust")]
     public int bulletsPerBurst = 3;
     public int burstBullerLeft;
     //Spread
-    public float speadIntensity;
+    [Header("Spread")]
+    public float spreadIntensity;
+    public float hibspreadIntensity;
+    public float adspreadIntensity;
     // Bullet
+    [Header("Bullet")]
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
     public float bulletPrefabLifeTime = 3f;
     public float bulletVelocity =30;
     public GameObject muzzleEffect;
-    public Animator animator;
+    internal Animator animator;
 
     //loading
+    [Header("loading")]
     public float reloadTime;
     public int magazineSize, bulletsLeft;
     public bool isReloading;
-    // UI
     
+    public Vector3 spawnPosition;
+    public Vector3 spawnRotation;
+    
+    bool isADS;
+
+    public enum WeaponModel
+    {
+        Pistol,
+        AK,
+    }
+    public WeaponModel thisWeaponModle;
 
     public enum ShootingMode
     {
@@ -43,55 +61,92 @@ public class Weapon : MonoBehaviour
     {
         readyToShoot =true;
         burstBullerLeft=bulletsPerBurst;
-        animator.GetComponent<Animator>();
+        animator = GetComponent<Animator>();
+
         bulletsLeft =magazineSize;
+        spreadIntensity =hibspreadIntensity;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(bulletsLeft == 0 && isShooting)
+        if(isActiveWeapon)
         {
-            SoundManager.Instace.emptyMagazineSoundpistol1.Play();
-        }
+            if(Input.GetMouseButtonDown(1))
+            {
+                EnterADS();
+            }
+            if(Input.GetMouseButtonUp(1))
+            {
+                ExitADS();
+            }
+            
+            GetComponent<Outline>().enabled = false;
+            
+            if(bulletsLeft == 0 && isShooting)
+            {
+                SoundManager.Instace.emptyMagazineSoundpistol1.Play();
+            }
 
-        if(currentShootingMode == ShootingMode.Auto)
-        {
-            isShooting=Input.GetKey(KeyCode.Mouse0);
-        }
-        else if(currentShootingMode == ShootingMode.Single ||
-            currentShootingMode == ShootingMode.Burst)
-        {
-            isShooting=Input.GetKeyDown(KeyCode.Mouse0);
-        }
-        if(Input.GetKeyDown(KeyCode.R) && bulletsLeft <magazineSize && !isReloading )
-        {
-            Reload();
-        }
+            if(currentShootingMode == ShootingMode.Auto)
+            {
+                isShooting=Input.GetKey(KeyCode.Mouse0);
+            }
+            else if(currentShootingMode == ShootingMode.Single ||
+                currentShootingMode == ShootingMode.Burst)
+            {
+                isShooting=Input.GetKeyDown(KeyCode.Mouse0);
+            }
+            if(Input.GetKeyDown(KeyCode.R) && bulletsLeft <magazineSize && !isReloading && WeaponManager.Instace.CheckAmmoLeftFor(thisWeaponModle) > 0 )
+            {
+                Reload();
+            }
 
-        if (readyToShoot && !isShooting && !isReloading && bulletsLeft <=0)
-        {
-            // Reload();
-        }
+            if (readyToShoot && !isShooting && !isReloading && bulletsLeft <=0)
+            {
+                // Reload();
+            }
 
-        if (readyToShoot && isShooting && bulletsLeft > 0)
-        {
-            burstBullerLeft=bulletsPerBurst;
-            FireWeapon();
-        }
-        if (AmmoManager.Instace.ammoDisplay != null)
-        {
-            AmmoManager.Instace.ammoDisplay.text =$"{bulletsLeft/bulletsPerBurst}/{magazineSize/bulletsPerBurst}";
+            if (readyToShoot && isShooting && bulletsLeft > 0)
+            {
+                burstBullerLeft=bulletsPerBurst;
+                FireWeapon();
+            }
+            
         }
         
+    }
+
+    private void EnterADS()
+    {
+        animator.SetTrigger("enterADS");
+        spreadIntensity =adspreadIntensity;
+        HUDManager.Instace.middlDot.SetActive(false);
+        isADS=true;
+    }
+    private void ExitADS()
+    {
+        animator.SetTrigger("exitADS");
+        spreadIntensity =hibspreadIntensity;
+        HUDManager.Instace.middlDot.SetActive(true);
+        isADS=false;
     }
 
     private void FireWeapon()
     {
         bulletsLeft--;
         muzzleEffect.GetComponent<ParticleSystem>().Play();
-        animator.SetTrigger("RECOIL");
-        SoundManager.Instace.shootingSoundpistol1.Play();
+        if(isADS)
+        {
+            animator.SetTrigger("RECOIL_ADS");
+        }
+        else
+        {
+            animator.SetTrigger("RECOIL");
+        }
+
+        SoundManager.Instace.PlayShootingSound(thisWeaponModle);
+
         readyToShoot =false;
         Vector3 shootingDirection =CalculateDirectionAndSpread().normalized;
         // Instantiate the bullet
@@ -118,7 +173,17 @@ public class Weapon : MonoBehaviour
 
     private void Reload()
     {
-        SoundManager.Instace.reloadingSoundpistol1.Play();
+        if(WeaponManager.Instace.CheckAmmoLeftFor(thisWeaponModle) > magazineSize)
+        {
+            bulletsLeft = magazineSize;
+            WeaponManager.Instace.DecreaseTotalAmmo(bulletsLeft,thisWeaponModle);
+        }
+        else
+        {
+            bulletsLeft = WeaponManager.Instace.CheckAmmoLeftFor(thisWeaponModle);
+            WeaponManager.Instace.DecreaseTotalAmmo(bulletsLeft,thisWeaponModle);
+        }
+        SoundManager.Instace.PlayReloadSound(thisWeaponModle);
         animator.SetTrigger("RELOAD");
         isReloading =true;
         Invoke("ReloadCompleted",reloadTime);
@@ -156,10 +221,10 @@ public class Weapon : MonoBehaviour
 
         Vector3 direction = targetPoint -bulletSpawn.position;
 
-        float x=UnityEngine.Random.Range(-speadIntensity,speadIntensity);
-        float y=UnityEngine.Random.Range(-speadIntensity,speadIntensity);
+        float z=UnityEngine.Random.Range(-spreadIntensity,spreadIntensity);
+        float y=UnityEngine.Random.Range(-spreadIntensity,spreadIntensity);
         // Returning the shooting direction and spread
-        return direction +new Vector3(x,y,0);
+        return direction +new Vector3(0,y,z);
     }
 
     private IEnumerator DestroyBulletAfterTime(GameObject bullet,float delay)

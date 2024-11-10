@@ -3,11 +3,19 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public static SoundManager Instace {get; set;}
-    public AudioSource shootingSoundpistol1;
-    public AudioSource reloadingSoundpistol1;
     public AudioSource emptyMagazineSoundpistol1;
+    public static SoundManager Instace {get; set;}
+    public AudioSource shootingChannel; 
 
+    public AudioClip AKShot;
+    public AudioClip pistolShot;
+
+    public AudioSource reloadingSoundpistol1;
+
+    public AudioSource reloadingSoundAK;
+
+    public AudioSource throwablesChannel;
+    public AudioClip grenadeSound;
     private void Awake()
     {
         if(Instace != null && Instace !=this)
@@ -19,4 +27,34 @@ public class SoundManager : MonoBehaviour
             Instace=this;
         }
     }
+    public void PlayShootingSound(Weapon.WeaponModel weapon)
+    {
+        switch(weapon)
+        {
+            case Weapon.WeaponModel.Pistol:
+                shootingChannel.PlayOneShot(pistolShot);
+                break;
+            case Weapon.WeaponModel.AK:
+                shootingChannel.PlayOneShot(AKShot);
+                break;
+            
+
+        }
+    }
+    public void PlayReloadSound(Weapon.WeaponModel weapon)
+    {
+        switch(weapon)
+        {
+            case Weapon.WeaponModel.Pistol:
+                reloadingSoundpistol1.Play();
+                break;
+            case Weapon.WeaponModel.AK:
+                reloadingSoundAK.Play();
+                break;
+            
+
+        }
+    }
+
+
 }

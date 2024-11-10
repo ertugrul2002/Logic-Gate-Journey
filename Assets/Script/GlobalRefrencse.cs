@@ -4,6 +4,8 @@ public class GlobalRefrencse :MonoBehaviour
 {
     public static GlobalRefrencse Instace {get; set;}
     public GameObject bulletImpactEffectPrefab;
+    public GameObject grenadeExplosionEffect;
+    public GameObject smokeGrenadeEffect;
 
     private void Awake()
     {
