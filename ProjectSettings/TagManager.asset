@@ -12,6 +12,8 @@ TagManager:
   - Waypoints
   - ZombieHand
   - WeaponRender
+  - endCable
+  - startCable
   layers:
   - Default
   - TransparentFX
