@@ -4,8 +4,8 @@ public class Cable : MonoBehaviour
 {
     private LineRenderer lineRenderer;
     private bool isDragging = false; 
-    private CableMangager CableMangager = null; 
-    private CableMangager targetConnector = null; 
+    private CableManager CableManager = null; 
+    private CableManager targetConnector = null; 
     public Transform startPoint; 
     public Transform endPoint;   
 
@@ -43,7 +43,7 @@ public class Cable : MonoBehaviour
                 {
                     lineRenderer.SetPosition(1, hitInfo.point);
 
-                    CableMangager connector = hitInfo.collider.GetComponent<CableMangager>();
+                    CableManager connector = hitInfo.collider.GetComponent<CableManager>();
                     if (connector != null && connector.CanConnect(this))
                     {
                         print("hit start cable");
@@ -63,24 +63,24 @@ public class Cable : MonoBehaviour
             {
                 print("epmty");
               
-                if (CableMangager != null)
+                if (CableManager != null)
                 {
-                    CableMangager.DisconnectCable();
+                    CableManager.DisconnectCable();
                 }
 
 
                 lineRenderer.SetPosition(1, targetConnector.transform.position);
                 targetConnector.ConnectCable(this);
-                CableMangager = targetConnector; 
+                CableManager = targetConnector; 
             }
 
             isDragging = false;
         }
         if (endPoint != null && !isDragging && targetConnector == null)
         {
-            if (CableMangager != null)
+            if (CableManager != null)
             {
-                CableMangager.DisconnectCable();
+                CableManager.DisconnectCable();
             }
             lineRenderer.SetPosition(1, endPoint.position);
         }

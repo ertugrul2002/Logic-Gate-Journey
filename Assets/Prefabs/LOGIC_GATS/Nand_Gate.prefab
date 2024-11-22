@@ -136,8 +136,8 @@ Transform:
   m_GameObject: {fileID: 1097256203124172434}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0038, y: 0.0131, z: 0.4682}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.06}
+  m_LocalPosition: {x: -0.0009, y: 0.0104, z: 0.5054}
+  m_LocalScale: {x: 0.01, y: 0.02, z: 0.09}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5097616028282530888}
@@ -327,7 +327,7 @@ MonoBehaviour:
     | 1 | 0  |  
     1
 
-    | 1 | 1  |   1'
+    | 1 | 1  |   0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -923,8 +923,8 @@ Transform:
   m_GameObject: {fileID: 2849444308639694437}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0085, y: 0.0859, z: -0.2485}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.2}
+  m_LocalPosition: {x: -0.0061, y: 0.1005, z: -0.2485}
+  m_LocalScale: {x: 0.01, y: 0.05, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5097616028282530888}
@@ -1132,6 +1132,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5097616028282530888}
+  - component: {fileID: 6011667542604579546}
+  - component: {fileID: 2970088976420865410}
   m_Layer: 0
   m_Name: Nand_Gate
   m_TagString: Untagged
@@ -1166,6 +1168,39 @@ Transform:
   - {fileID: 7007529218867812097}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6011667542604579546
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5626732995827815443}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.04893674, y: 0.29426572, z: 0.6468815}
+  m_Center: {x: 0.010068099, y: -0.0060401624, z: 0.11126857}
+--- !u!114 &2970088976420865410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5626732995827815443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a02c89146ef3fe6479a84cf3c5ed4d3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5801022890880593127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1194,7 +1229,7 @@ Transform:
   m_GameObject: {fileID: 5801022890880593127}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0091, y: 0.0129, z: 0.4348}
+  m_LocalPosition: {x: -0.0185, y: 0.0078, z: 0.4494}
   m_LocalScale: {x: 0.0011111111, y: 0.0011111111, z: 0.0011111111}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1357,7 +1392,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.49916765
+    widthMultiplier: 0.17785461
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -1466,8 +1501,8 @@ Transform:
   m_GameObject: {fileID: 6377417348380140915}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0085, y: -0.0747, z: -0.2485}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.2}
+  m_LocalPosition: {x: -0.0064, y: -0.0747, z: -0.2485}
+  m_LocalScale: {x: 0.01, y: 0.05, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5097616028282530888}
@@ -1584,7 +1619,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7416824938386237243}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 5.285}
+  m_LocalPosition: {x: 0, y: 0, z: 5.354}
   m_LocalScale: {x: 0.5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1660,7 +1695,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: in OUT
+  m_text: OUT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

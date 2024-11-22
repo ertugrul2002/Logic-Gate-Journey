@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class CableMangager : MonoBehaviour
+public class CableManager : MonoBehaviour
 {
     private Cable connectedCable = null; 
-
+    public string connectorID;
   
     public bool CanConnect(Cable cable)
     {
