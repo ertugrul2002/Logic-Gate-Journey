@@ -377,6 +377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 796334d0bcacf0c418b641c172f779e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Name: 2
   startPoint: {fileID: 2716579166293709797}
   endPoint: {fileID: 4847471537666026984}
 --- !u!1 &4373652066951013389
@@ -973,6 +974,7 @@ GameObject:
   - component: {fileID: 7410972882649109852}
   - component: {fileID: 5804882204248082581}
   - component: {fileID: 4130172626334783586}
+  - component: {fileID: 4197981693509428770}
   m_Layer: 0
   m_Name: Not_Gate
   m_TagString: Untagged
@@ -1037,6 +1039,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a02c89146ef3fe6479a84cf3c5ed4d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4197981693509428770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7728521619821017499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f69900c1f163442aaf69b46e21b8fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  input: {fileID: 5429535502345361515}
+  Out: {fileID: 3971376708847982873}
 --- !u!1 &7827750803586642742
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,6 +1350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e8d5a5d504db44eb872a93170c1029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  connectorType: 0
 --- !u!1 &8973366863605190768
 GameObject:
   m_ObjectHideFlags: 0

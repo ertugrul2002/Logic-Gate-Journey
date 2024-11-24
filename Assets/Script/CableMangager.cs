@@ -3,11 +3,15 @@ using UnityEngine;
 public class CableManager : MonoBehaviour
 {
     private Cable connectedCable = null; 
-    public string connectorID;
+    public ConnectorType connectorType;
   
-    public bool CanConnect(Cable cable)
+    public Cable getConnectedCable()
     {
-        return connectedCable == null ;
+        return connectedCable;
+    }
+    public bool CanConnect()
+    {
+        return connectedCable != null ;
     }
 
     public void ConnectCable(Cable cable)

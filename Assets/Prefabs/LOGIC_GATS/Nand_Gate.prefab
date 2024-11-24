@@ -1015,6 +1015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e8d5a5d504db44eb872a93170c1029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  connectorType: 0
 --- !u!1 &3372153644260261095
 GameObject:
   m_ObjectHideFlags: 0
@@ -1134,6 +1135,7 @@ GameObject:
   - component: {fileID: 5097616028282530888}
   - component: {fileID: 6011667542604579546}
   - component: {fileID: 2970088976420865410}
+  - component: {fileID: 2534118171660407612}
   m_Layer: 0
   m_Name: Nand_Gate
   m_TagString: Untagged
@@ -1201,6 +1203,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a02c89146ef3fe6479a84cf3c5ed4d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2534118171660407612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5626732995827815443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50969dc2517ecd24282c0dbcf8e54ff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputA: {fileID: 1803489884914585987}
+  inputB: {fileID: 4739235096396067685}
+  Out: {fileID: 4251854824213735383}
 --- !u!1 &5801022890880593127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1470,6 +1487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 796334d0bcacf0c418b641c172f779e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Name: 2
   startPoint: {fileID: 1481149228326991279}
   endPoint: {fileID: 1766260612851217284}
 --- !u!1 &6377417348380140915
@@ -1593,6 +1611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e8d5a5d504db44eb872a93170c1029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  connectorType: 1
 --- !u!1 &7416824938386237243
 GameObject:
   m_ObjectHideFlags: 0
