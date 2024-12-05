@@ -13,6 +13,7 @@ public class Door : MonoBehaviour {
     float DoorCloseAngle = 0.0f;
 	public AudioSource asource;
 	public AudioClip openDoor,closeDoor;
+	public GameObject text;
 	// Use this for initialization
 	void Start () {
 		asource = GetComponent<AudioSource> ();
@@ -20,17 +21,17 @@ public class Door : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
 		if (open)
 		{
             var target = Quaternion.Euler (0, DoorOpenAngle, 0);
             transform.localRotation = Quaternion.Slerp(transform.localRotation, target, Time.deltaTime * 5 * smooth);
-	
+			text.SetActive(false);
 		}
 		else
 		{
             var target1= Quaternion.Euler (0, DoorCloseAngle, 0);
             transform.localRotation = Quaternion.Slerp(transform.localRotation, target1, Time.deltaTime * 5 * smooth);
-	
 		}  
 	}
 

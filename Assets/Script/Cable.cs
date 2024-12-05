@@ -1,18 +1,38 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 public class Cable : MonoBehaviour
 {
     public  ConnectorType Name;
+    public List<bool> truthTable = new List<bool>();
     private LineRenderer lineRenderer;
     private bool isDragging = false; 
-    private CableManager CableManager = null; 
+    private CableManager CableManager1 = null; 
     private CableManager targetConnector = null; 
     public Transform startPoint; 
     public Transform endPoint;   
 
     public CableManager getCableManager()
     {
-        return CableManager;
+        return CableManager1;
+    }
+    public List<bool> GetTruthTable()
+    {
+        return truthTable;
+    }
+    public void SetTruthTable(List<bool> newTruthTable)
+    {
+        
+        if (truthTable.Count != newTruthTable.Count)
+        {
+            truthTable = new List<bool>(newTruthTable); 
+        }
+        else
+        {
+            for (int i = 0; i < newTruthTable.Count; i++)
+            {
+                truthTable[i] = newTruthTable[i];
+            }
+        }
     }
     public Transform getendPoint()
     {
@@ -44,8 +64,9 @@ public class Cable : MonoBehaviour
                     lineRenderer.SetPosition(1, hitInfo.point);
                     CableManager connector = hitInfo.collider.GetComponent<CableManager>();
                     
-                    if (connector != null && !connector.CanConnect())
+                    if (connector != null && connector.CanConnect())
                     {
+                        
                         targetConnector = connector;
                     }
                     else
@@ -60,21 +81,23 @@ public class Cable : MonoBehaviour
         {
             if (isDragging && targetConnector != null)
             {
-                if (CableManager != null)
+                if (CableManager1 != null)
                 {
-                    CableManager.DisconnectCable();
+                    CableManager1.DisconnectCable();
+                    CableManager1=null;
                 }
                 lineRenderer.SetPosition(1, targetConnector.transform.position);
                 targetConnector.ConnectCable(this);
-                CableManager = targetConnector; 
+                CableManager1 = targetConnector; 
             }
             isDragging = false;
         }
         if (endPoint != null && !isDragging && targetConnector == null)
         {
-            if (CableManager != null)
+            if (CableManager1 != null)
             {
-                CableManager.DisconnectCable();
+                CableManager1.DisconnectCable();
+                CableManager1=null;
             }
             lineRenderer.SetPosition(1, endPoint.position);
         }
