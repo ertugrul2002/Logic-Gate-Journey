@@ -7,14 +7,15 @@ public class Cable : MonoBehaviour
     private LineRenderer lineRenderer;
     private bool isDragging = false; 
     private CableManager CableManager1 = null; 
+    private List<CableManager> connectedConnectors = new List<CableManager>();
     private CableManager targetConnector = null; 
     public Transform startPoint; 
     public Transform endPoint;   
 
-    public CableManager getCableManager()
-    {
-        return CableManager1;
-    }
+    // public CableManager getCableManager()
+    // {
+    //     return CableManager1;
+    // }
     public List<bool> GetTruthTable()
     {
         return truthTable;
