@@ -9,8 +9,8 @@ public class LogicGate_WorkSpace : MonoBehaviour
     [SerializeField] private Door door; 
     // public static LogicGate_WorkSpace Instance {get; set;}
     public List<bool>  TruthTableHandler=new List<bool> {};
-    public Cable outA; 
-    public Cable outB; 
+    // public Cable outA; 
+    // public Cable outB; 
     private bool isSolves =false;
   
     [SerializeField] private CableManager inputOut; 

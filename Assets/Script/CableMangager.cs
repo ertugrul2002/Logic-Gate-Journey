@@ -17,6 +17,7 @@ public class CableManager : MonoBehaviour
     public void ConnectCable(Cable cable)
     {
         connectedCable = cable;
+        Debug.Log("Input"+cable.Name + ":" + string.Join(", ", cable.GetTruthTable()));
     }
     
 

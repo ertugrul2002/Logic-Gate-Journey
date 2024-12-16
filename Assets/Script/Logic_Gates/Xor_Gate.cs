@@ -1,9 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class OR_Gate : MonoBehaviour
+public class Xor_Gate : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     public int ID_Gate { get; private set; } 
 
     public void SetID(int id)
@@ -53,7 +52,7 @@ public class OR_Gate : MonoBehaviour
         List<bool> newTruthTable = new List<bool>(truthTableA);
         for (int i = 0; i < truthTableA.Count; i++)
         {
-            newTruthTable[i] = (truthTableA[i] || truthTableB[i]);
+            newTruthTable[i] = ((truthTableA[i] && !truthTableB[i]) || (truthTableA[i] && !truthTableB[i]));
         }
         return newTruthTable;
     }
