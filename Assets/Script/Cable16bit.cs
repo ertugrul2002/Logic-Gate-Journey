@@ -1,0 +1,111 @@
+using UnityEngine;
+using System.Collections.Generic;
+
+[System.Serializable]
+public class Cable16bitTruthTable
+{
+    public List<bool> truthTable; 
+}
+public class Cable16bit : MonoBehaviour
+{
+    public  ConnectorType Name;
+    public List<Cable16bitTruthTable> truthTable = new List<Cable16bitTruthTable>();
+    private LineRenderer lineRenderer;
+    private bool isDragging = false; 
+    private CableManager16bit CableManager1 = null; 
+    // private List<CableManager> connectedConnectors = new List<CableManager>();
+    private CableManager16bit targetConnector = null; 
+    public Transform startPoint; 
+    public Transform endPoint;   
+
+    public List<Cable16bitTruthTable> GetTruthTable()
+    {
+        return truthTable;
+    }
+    public void SetTruthTable(List<Cable16bitTruthTable> newTruthTable)
+    {
+        
+        if (truthTable.Count != newTruthTable.Count)
+        {
+            truthTable = new List<Cable16bitTruthTable>(newTruthTable); 
+        }
+        else
+        {
+            for (int i = 0; i < newTruthTable.Count; i++)
+            {
+                for (int j=0;j< newTruthTable[i].truthTable.Count ;j++)
+                {
+                    truthTable[i].truthTable[j] = newTruthTable[i].truthTable[j];
+                }
+            }
+        }
+    }
+    public Transform getendPoint()
+    {
+        return endPoint;
+    }
+    void Start()
+    {
+       
+        lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer.positionCount = 2;
+        lineRenderer.SetPosition(0, startPoint.position); 
+        lineRenderer.SetPosition(1, endPoint.position); 
+    }
+
+    void Update()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); 
+            if (Physics.Raycast(ray, out RaycastHit hitInfo))
+            {
+                if (hitInfo.collider.gameObject == endPoint.gameObject)
+                {
+                    isDragging = true; 
+                }
+
+                if (isDragging)
+                {
+                    lineRenderer.SetPosition(1, hitInfo.point);
+                    CableManager16bit connector = hitInfo.collider.GetComponent<CableManager16bit>();
+                    
+                    if (connector != null && connector.CanConnect())
+                    {
+                        
+                        targetConnector = connector;
+                    }
+                    else
+                    {
+                        targetConnector = null; 
+                    }
+                }
+                
+            }
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (isDragging && targetConnector != null)
+            {
+                if (CableManager1 != null)
+                {
+                    CableManager1.DisconnectCable();
+                    CableManager1=null;
+                }
+                lineRenderer.SetPosition(1, targetConnector.transform.position);
+                targetConnector.ConnectCable(this);
+                CableManager1 = targetConnector; 
+            }
+            isDragging = false;
+        }
+        if (endPoint != null && !isDragging && targetConnector == null)
+        {
+            if (CableManager1 != null)
+            {
+                CableManager1.DisconnectCable();
+                CableManager1=null;
+            }
+            lineRenderer.SetPosition(1, endPoint.position);
+        }
+    }
+}
