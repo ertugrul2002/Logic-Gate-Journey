@@ -3,7 +3,7 @@ using System.Collections.Generic;
 public class CableManager : MonoBehaviour
 {
     private Cable connectedCable = null; 
-    public ConnectorType connectorType;
+    public ConnectorType Name;
 
     public Cable getConnectedCable()
     {

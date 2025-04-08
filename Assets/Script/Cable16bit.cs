@@ -1,15 +1,14 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-[System.Serializable]
-public class Cable16bitTruthTable
-{
-    public List<bool> truthTable; 
-}
+
+
 public class Cable16bit : MonoBehaviour
 {
     public  ConnectorType Name;
-    public List<Cable16bitTruthTable> truthTable = new List<Cable16bitTruthTable>();
+    
+    
+    [SerializeField] public List<Cable16bitTruthTable> truthTable = new List<Cable16bitTruthTable>(){};
     private LineRenderer lineRenderer;
     private bool isDragging = false; 
     private CableManager16bit CableManager1 = null; 
@@ -24,21 +23,13 @@ public class Cable16bit : MonoBehaviour
     }
     public void SetTruthTable(List<Cable16bitTruthTable> newTruthTable)
     {
-        
-        if (truthTable.Count != newTruthTable.Count)
+
+        truthTable.Clear();
+        foreach (var item in newTruthTable)
         {
-            truthTable = new List<Cable16bitTruthTable>(newTruthTable); 
+            truthTable.Add(new Cable16bitTruthTable(new List<bool>(item.truthTable))); 
         }
-        else
-        {
-            for (int i = 0; i < newTruthTable.Count; i++)
-            {
-                for (int j=0;j< newTruthTable[i].truthTable.Count ;j++)
-                {
-                    truthTable[i].truthTable[j] = newTruthTable[i].truthTable[j];
-                }
-            }
-        }
+
     }
     public Transform getendPoint()
     {

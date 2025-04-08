@@ -2,12 +2,10 @@ using DoorScript;
 using UnityEngine;
 using System.Collections.Generic;
 
-
-[System.Serializable]
-public class CableTruthTable
+public class CableManagerTruthTable
 {
-    public CableManager cable; // المخرج
-    public List<bool> truthTable; // Truth Table الخاصة به
+    public CableManager cable; 
+    public List<bool> truthTable ; 
 }
 
 public class LogicGate_WorkSpace : MonoBehaviour
@@ -15,7 +13,7 @@ public class LogicGate_WorkSpace : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     
     [SerializeField] private Door door; 
-    [SerializeField] private List<CableTruthTable> cableTruthTables = new List<CableTruthTable>(){};
+    [SerializeField] private List<CableManagerTruthTable> cableTruthTables = new List<CableManagerTruthTable>(){};
 
     private bool isSolves =false;
     private bool isAllCorrect =false;

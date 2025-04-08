@@ -1,7 +1,8 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
-public class Xor_Gate : MonoBehaviour
+
+public class OR16_Gate : MonoBehaviour
 {
     public int ID_Gate { get; private set; } 
 
@@ -9,20 +10,20 @@ public class Xor_Gate : MonoBehaviour
     {
         ID_Gate = id;
     }
-    [SerializeField] private CableManager inputA; 
-    [SerializeField] private CableManager inputB; 
-    public Cable Out;
+    [SerializeField] private CableManager16bit inputA; 
+    [SerializeField] private CableManager16bit inputB; 
+    public Cable16bit Out;
     private bool isConnected =false;
     
-    public Cable getCable()
+    public Cable16bit getCable()
     {
         return Out;
     }
-    public CableManager getInputA()
+    public CableManager16bit getInputA()
     {
         return inputA;
     }
-    public CableManager getInputB()
+    public CableManager16bit getInputB()
     {
         return inputB;
     }
@@ -47,19 +48,27 @@ public class Xor_Gate : MonoBehaviour
             }
         }
     }
-    private List<bool> Evaluate(List<bool> truthTableA,List<bool> truthTableB)
+    private List<Cable16bitTruthTable> Evaluate(List<Cable16bitTruthTable> truthTableA,List<Cable16bitTruthTable> truthTableB)
     {
-        List<bool> newTruthTable = new List<bool>(truthTableA);
+        List<Cable16bitTruthTable> newTruthTable = new List<Cable16bitTruthTable>(truthTableA);
         for (int i = 0; i < truthTableA.Count; i++)
         {
-            newTruthTable[i] = ((truthTableA[i] && !truthTableB[i]) || (!truthTableA[i] && truthTableB[i]));
+            for (int j=0;j< truthTableA[i].truthTable.Count ;j++)
+            {
+                newTruthTable[i].truthTable[j] = (truthTableA[i].truthTable[j] || truthTableB[i].truthTable[j]);
+            }
         }
         return newTruthTable;
     }
     private void UpdateTruthTable()
     {
         Out.SetTruthTable(Evaluate(inputA.getConnectedCable().GetTruthTable(),inputB.getConnectedCable().GetTruthTable()));
-        Debug.Log("Input A ORGate: " + string.Join(", ", Out.GetTruthTable()));
+        List<Cable16bitTruthTable> newTruthTable=Out.GetTruthTable();
+        Debug.Log("Input A ORGate: ");
+        for(int i=0;i<newTruthTable.Count;i++)
+        {
+            Debug.Log("  "+i +" "+ string.Join(", ", newTruthTable[i].truthTable));
+        }
         
         
     }

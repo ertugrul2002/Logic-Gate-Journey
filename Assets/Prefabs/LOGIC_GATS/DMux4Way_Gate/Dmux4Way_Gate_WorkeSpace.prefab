@@ -185,7 +185,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1857787850272922815}
-  - component: {fileID: 5377120145222225026}
+  - component: {fileID: 2810103167689977742}
   m_Layer: 0
   m_Name: Dmux4Way_Gate_WorkeSpace
   m_TagString: Untagged
@@ -247,7 +247,7 @@ Transform:
   - {fileID: 1874182692783349863}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
---- !u!114 &5377120145222225026
+--- !u!114 &2810103167689977742
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -256,15 +256,47 @@ MonoBehaviour:
   m_GameObject: {fileID: 889108744364053932}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31b6319ef550d0d4f86d9c6b75187379, type: 3}
+  m_Script: {fileID: 11500000, guid: 8794faecaf23d1d46954dea99dfacab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Name: 2
   door: {fileID: 0}
   cableTruthTables:
-  - cable: {fileID: 4565673438920828084}
-    truthTable: 00000100
-  - cable: {fileID: 4262029496964993475}
-    truthTable: 00000001
+  - cable: {fileID: 9145559876215909958}
+    truthTable: []
+  - cable: {fileID: 304747177706769403}
+    truthTable: []
+  - cable: {fileID: 8794317656415860018}
+    truthTable: []
+  - cable: {fileID: 4646944824453521793}
+    truthTable: []
+  - cable: {fileID: 8213904439579687533}
+    truthTable: []
+  - cable: {fileID: 4314628145561956250}
+    truthTable: []
+  - cable: {fileID: 2592444486192105593}
+    truthTable: []
+  - cable: {fileID: 5198743914016926502}
+    truthTable: []
+  - cable: {fileID: 8740514413265161868}
+    truthTable: []
+  - cable: {fileID: 6362962096114447366}
+    truthTable: []
+  - cable: {fileID: 7789077818138254619}
+    truthTable: []
+  - cable: {fileID: 8011745049327357495}
+    truthTable: []
+  cableManagaerTruthTables:
+  - cableManager: {fileID: 4565673438920828084}
+    truthTable: []
+  - cableManager: {fileID: 6149375568143035866}
+    truthTable: []
+  - cableManager: {fileID: 64057494957784271}
+    truthTable: []
+  - cableManager: {fileID: 4262029496964993475}
+    truthTable: []
+  cable16TruthTables: []
+  cableManagaer16TruthTables: []
 --- !u!1 &1191242993648953662
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +311,7 @@ GameObject:
   - component: {fileID: 3134081251840853546}
   - component: {fileID: 6149375568143035866}
   m_Layer: 0
-  m_Name: out_a_in (1)
+  m_Name: 'out_b_in '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -386,7 +418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e8d5a5d504db44eb872a93170c1029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectorType: 0
+  Name: 1
 --- !u!1 &1391720768658089669
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,7 +1092,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1036
+  m_VersionIndex: 1066
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1738,7 +1770,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 582
+  m_VersionIndex: 612
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2064,7 +2096,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 261
+  m_VersionIndex: 291
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2742,7 +2774,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 611
+  m_VersionIndex: 641
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2761,7 +2793,7 @@ GameObject:
   - component: {fileID: 8263451917351416684}
   - component: {fileID: 64057494957784271}
   m_Layer: 0
-  m_Name: out_a_in (2)
+  m_Name: out_c_in
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2868,7 +2900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e8d5a5d504db44eb872a93170c1029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectorType: 0
+  Name: 2
 --- !u!1 &5099239090602642322
 GameObject:
   m_ObjectHideFlags: 0
@@ -3166,7 +3198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e8d5a5d504db44eb872a93170c1029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectorType: 0
+  Name: 0
 --- !u!1 &6221896454440497163
 GameObject:
   m_ObjectHideFlags: 0
@@ -3488,7 +3520,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1968
+  m_VersionIndex: 1998
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -3791,7 +3823,7 @@ GameObject:
   - component: {fileID: 4151617534100056336}
   - component: {fileID: 4262029496964993475}
   m_Layer: 0
-  m_Name: out_b_in
+  m_Name: out_d_in
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3898,7 +3930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e8d5a5d504db44eb872a93170c1029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectorType: 1
+  Name: 3
 --- !u!1 &6544598966450888479
 GameObject:
   m_ObjectHideFlags: 0
@@ -4572,7 +4604,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 343
+  m_VersionIndex: 373
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -5133,7 +5165,7 @@ Transform:
   m_GameObject: {fileID: 9106499294160817996}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.189, y: -0.665, z: -0.031}
+  m_LocalPosition: {x: 0.189, y: -0.692, z: -0.031}
   m_LocalScale: {x: 0.1, y: 0.05, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5403,7 +5435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2518475045175480635, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: m_Name
-      value: sel_cable (6)
+      value: sel0_cable3
       objectReference: {fileID: 0}
     - target: {fileID: 3285700758309796207, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: m_LocalScale.x
@@ -5457,6 +5489,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+      propertyPath: Name
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+      propertyPath: truthTable.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7335485721830889657, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -5471,6 +5511,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3285700758309796207, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
   m_PrefabInstance: {fileID: 70350774114968377}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6362962096114447366 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+  m_PrefabInstance: {fileID: 70350774114968377}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796334d0bcacf0c418b641c172f779e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1193878260528004121
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5485,7 +5536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2518475045175480635, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: m_Name
-      value: sel_cable (4)
+      value: sel1_cable3
       objectReference: {fileID: 0}
     - target: {fileID: 3285700758309796207, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: m_LocalScale.x
@@ -5539,6 +5590,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+      propertyPath: Name
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+      propertyPath: truthTable.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7335485721830889657, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -5553,6 +5612,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3285700758309796207, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
   m_PrefabInstance: {fileID: 1193878260528004121}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5198743914016926502 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+  m_PrefabInstance: {fileID: 1193878260528004121}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796334d0bcacf0c418b641c172f779e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1786069000086795966
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5567,7 +5637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2518475045175480635, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: m_Name
-      value: sel_cable
+      value: sel0_cable2
       objectReference: {fileID: 0}
     - target: {fileID: 3285700758309796207, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: m_LocalScale.x
@@ -5621,6 +5691,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+      propertyPath: Name
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+      propertyPath: truthTable.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7335485721830889657, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -5635,6 +5713,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3285700758309796207, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
   m_PrefabInstance: {fileID: 1786069000086795966}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4646944824453521793 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+  m_PrefabInstance: {fileID: 1786069000086795966}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796334d0bcacf0c418b641c172f779e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2447896015219251635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5649,7 +5738,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2518475045175480635, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: m_Name
-      value: sel_cable (5)
+      value: sel1_cable4
       objectReference: {fileID: 0}
     - target: {fileID: 3285700758309796207, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: m_LocalScale.x
@@ -5703,6 +5792,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+      propertyPath: Name
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+      propertyPath: truthTable.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7335485721830889657, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -5717,6 +5814,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3285700758309796207, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
   m_PrefabInstance: {fileID: 2447896015219251635}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8740514413265161868 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+  m_PrefabInstance: {fileID: 2447896015219251635}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796334d0bcacf0c418b641c172f779e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2503885566517060109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5731,7 +5839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2518475045175480635, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: m_Name
-      value: in_cable2 (1)
+      value: in_cable4
       objectReference: {fileID: 0}
     - target: {fileID: 3285700758309796207, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: m_LocalScale.x
@@ -5785,6 +5893,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+      propertyPath: Name
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+      propertyPath: truthTable.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7335485721830889657, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -5799,6 +5915,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3285700758309796207, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
   m_PrefabInstance: {fileID: 2503885566517060109}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8794317656415860018 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+  m_PrefabInstance: {fileID: 2503885566517060109}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796334d0bcacf0c418b641c172f779e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2765115307911346553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5825,7 +5952,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2518475045175480635, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: m_Name
-      value: in_cable1
+      value: in_cable2
       objectReference: {fileID: 0}
     - target: {fileID: 3285700758309796207, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: m_LocalScale.x
@@ -5879,6 +6006,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+      propertyPath: Name
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+      propertyPath: truthTable.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7335485721830889657, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -5893,6 +6028,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3285700758309796207, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
   m_PrefabInstance: {fileID: 2765115307911346553}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9145559876215909958 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+  m_PrefabInstance: {fileID: 2765115307911346553}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796334d0bcacf0c418b641c172f779e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2975051320899169618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5907,7 +6053,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2518475045175480635, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: m_Name
-      value: sel_cable (1)
+      value: sel1_cable1
       objectReference: {fileID: 0}
     - target: {fileID: 3285700758309796207, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: m_LocalScale.x
@@ -5961,6 +6107,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+      propertyPath: Name
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+      propertyPath: truthTable.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7335485721830889657, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -5975,6 +6129,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3285700758309796207, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
   m_PrefabInstance: {fileID: 2975051320899169618}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8213904439579687533 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+  m_PrefabInstance: {fileID: 2975051320899169618}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796334d0bcacf0c418b641c172f779e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3795543798934112804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5989,7 +6154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2518475045175480635, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: m_Name
-      value: sel_cable (7)
+      value: sel0_cable4
       objectReference: {fileID: 0}
     - target: {fileID: 3285700758309796207, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: m_LocalScale.x
@@ -6043,6 +6208,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+      propertyPath: Name
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+      propertyPath: truthTable.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7335485721830889657, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -6057,6 +6230,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3285700758309796207, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
   m_PrefabInstance: {fileID: 3795543798934112804}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7789077818138254619 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+  m_PrefabInstance: {fileID: 3795543798934112804}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796334d0bcacf0c418b641c172f779e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4006875822425118984
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6071,7 +6255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2518475045175480635, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: m_Name
-      value: in_cable2 (2)
+      value: in_cable1
       objectReference: {fileID: 0}
     - target: {fileID: 3285700758309796207, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: m_LocalScale.x
@@ -6125,6 +6309,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+      propertyPath: Name
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+      propertyPath: truthTable.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7335485721830889657, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -6139,6 +6331,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3285700758309796207, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
   m_PrefabInstance: {fileID: 4006875822425118984}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8011745049327357495 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+  m_PrefabInstance: {fileID: 4006875822425118984}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796334d0bcacf0c418b641c172f779e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6669419873458003140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6153,7 +6356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2518475045175480635, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: m_Name
-      value: in_cable2
+      value: in_cable3
       objectReference: {fileID: 0}
     - target: {fileID: 3285700758309796207, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: m_LocalScale.x
@@ -6207,6 +6410,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+      propertyPath: Name
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+      propertyPath: truthTable.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7335485721830889657, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -6216,6 +6427,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+--- !u!114 &304747177706769403 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+  m_PrefabInstance: {fileID: 6669419873458003140}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796334d0bcacf0c418b641c172f779e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8149172710894495147 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3285700758309796207, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
@@ -6235,7 +6457,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2518475045175480635, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: m_Name
-      value: sel_cable (2)
+      value: sel0_cable1
       objectReference: {fileID: 0}
     - target: {fileID: 3285700758309796207, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: m_LocalScale.x
@@ -6289,6 +6511,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+      propertyPath: Name
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+      propertyPath: truthTable.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7335485721830889657, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -6298,6 +6528,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+--- !u!114 &4314628145561956250 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+  m_PrefabInstance: {fileID: 7157491428069324965}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796334d0bcacf0c418b641c172f779e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5678374914725298634 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3285700758309796207, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
@@ -6317,7 +6558,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2518475045175480635, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: m_Name
-      value: sel_cable (3)
+      value: sel1_cable2
       objectReference: {fileID: 0}
     - target: {fileID: 3285700758309796207, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: m_LocalScale.x
@@ -6371,6 +6612,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+      propertyPath: Name
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+      propertyPath: truthTable.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7335485721830889657, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -6380,6 +6629,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+--- !u!114 &2592444486192105593 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6391777718977353535, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}
+  m_PrefabInstance: {fileID: 8885058348743941958}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796334d0bcacf0c418b641c172f779e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6257529651024438825 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3285700758309796207, guid: 224f2f73e5952244a97c9b0e58be8c68, type: 3}

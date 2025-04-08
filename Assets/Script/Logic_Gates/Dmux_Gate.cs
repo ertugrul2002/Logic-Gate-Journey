@@ -60,7 +60,14 @@ public class Dmux_Gate : MonoBehaviour
         List<bool> newTruthTable = new List<bool>(truthTableIn);
         for (int i = 0; i < truthTableIn.Count; i++)
         {
-            newTruthTable[i] = (truthTableIn[i] && truthTableSel[i]);
+            if( truthTableSel[i])
+            {
+                newTruthTable[i] = truthTableIn[i] ;
+            }
+            else
+            {
+                newTruthTable[i] = false ;
+            }
         }
         return newTruthTable;
     }
@@ -69,7 +76,14 @@ public class Dmux_Gate : MonoBehaviour
         List<bool> newTruthTable = new List<bool>(truthTableIn);
         for (int i = 0; i < truthTableIn.Count; i++)
         {
-            newTruthTable[i] = (truthTableIn[i] && !truthTableSel[i]);
+            if( !truthTableSel[i])
+            {
+                newTruthTable[i] = truthTableIn[i] ;
+            }
+            else
+            {
+                newTruthTable[i] = false ;
+            }
         }
         return newTruthTable;
     }
