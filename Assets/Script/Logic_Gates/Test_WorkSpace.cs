@@ -2,50 +2,51 @@ using DoorScript;
 using UnityEngine;
 using System.Collections.Generic;
 
-// [System.Serializable]
-// public class Cable16bitTruthTable
-// {
-//     public List<bool> truthTable; 
+[System.Serializable]
+public class Cable16bitTruthTable
+{
+    public List<bool> truthTable; 
     
-//     public Cable16bitTruthTable(List<bool> values)
-//     {
-//         this.truthTable = new List<bool>(values);
-//     }
-// }
+    public Cable16bitTruthTable(List<bool> values)
+    {
+        this.truthTable = new List<bool>(values);
+    }
+}
 
 
-// [System.Serializable]
-// public class CableManagerTruthTableT
-// {
-//     public CableManager cableManager; 
-//     public List<Cable16bitTruthTable> truthTable = new List<Cable16bitTruthTable>(){}; 
-// }
+[System.Serializable]
+public class CableManagerTruthTableT
+{
+    public CableManager cableManager; 
+    public List<Cable16bitTruthTable> truthTable = new List<Cable16bitTruthTable>(){}; 
+}
 
-// [System.Serializable]
-// public class CableTruthTable
-// {
-//     public Cable cable; 
-//     // public Cable16bit cable16bit;
-//     public List<Cable16bitTruthTable> truthTable = new List<Cable16bitTruthTable>(){}; 
-// }
+[System.Serializable]
+public class CableTruthTable
+{
+    public Cable cable; 
+    public ButtonController1bit cables;
+    // public Cable16bit cable16bit;
+    public List<Cable16bitTruthTable> truthTable = new List<Cable16bitTruthTable>(){}; 
+}
 
 
-// [System.Serializable]
-// public class CableManagerTruthTable16bit
-// {
-//     public CableManager16bit cableManager; 
-//     // public CableManager16bit cableManager16bit;
-//     public List<Cable16bitTruthTable> truthTable = new List<Cable16bitTruthTable>(){}; 
-// }
-// [System.Serializable]
-// public class CableTruthTable16bit
-// {
-//     public Cable16bit cable; 
-//     // public Cable16bit cable16bit;
-//     public List<Cable16bitTruthTable> truthTable = new List<Cable16bitTruthTable>(){}; 
-// }
+[System.Serializable]
+public class CableManagerTruthTable16bit
+{
+    public CableManager16bit cableManager; 
+    // public CableManager16bit cableManager16bit;
+    public List<Cable16bitTruthTable> truthTable = new List<Cable16bitTruthTable>(){}; 
+}
+[System.Serializable]
+public class CableTruthTable16bit
+{
+    public Cable16bit cable; 
+    // public Cable16bit cable16bit;
+    public List<Cable16bitTruthTable> truthTable = new List<Cable16bitTruthTable>(){}; 
+}
 
-public class TestLogicGate : MonoBehaviour
+public class Test_WorkSpace : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private LogicGates_Type Name; 
@@ -62,7 +63,7 @@ public class TestLogicGate : MonoBehaviour
 
     private void Not_Gate_tests()
     {
-
+        SearchAndPrintCable(ConnectorType.InA,Not_Gate.TestIN(),CableTypes.c1);
     }
 
 
@@ -797,6 +798,24 @@ public class TestLogicGate : MonoBehaviour
                         Debug.Log($"i do not find {cableManagerName}  cableTruthTables.");
                     }
                 }
+                else if (Name == LogicGates_Type.Not)
+                {
+                    if(cableManagerName == ConnectorType.Out)
+                    {
+                        if (!CheckTruthTable(actualTruthTable, Not_Gate.TestOut()[0].truthTable))
+                        {
+                            isSolves=false;
+                            break;
+                        }
+                        count++;
+                        isSolves=true;
+                        // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
+                    }
+                    else
+                    {
+                        Debug.Log($"i do not find {cableManagerName}  cableTruthTables.");
+                    }
+                }
                 else
                 {
                     Debug.Log($"i dont find {Name}  work space.");
@@ -865,16 +884,19 @@ public class TestLogicGate : MonoBehaviour
 
     void SearchAndPrintCable(ConnectorType Name,List<Cable16bitTruthTable> truthTable,CableTypes type)
     {
+        Debug.Log($"i find  cableTruthTables. {truthTable[0].truthTable}");
         if (type == CableTypes.c1)
         {
             for (int i=0; i<cableTruthTables.Count ;i++)
             {
-                if (cableTruthTables[i].cable != null)
+                if (cableTruthTables[i].cables != null)
                 {
-                    if (Name == cableTruthTables[i].cable.Name)
+                    if (Name == cableTruthTables[i].cables.Name)
                     {
+                        Debug.Log("Input A notGate: " + string.Join(", ", truthTable[0].truthTable));
                         // Debug.Log($"i find {cableTruthTables[i].cable}  cableTruthTables. {truthTable[0].truthTable}");
-                        cableTruthTables[i].cable.SetTruthTable(truthTable[0].truthTable); 
+                        // cableTruthTables[i].cable.SetTruthTable(truthTable[0].truthTable); 
+                        cableTruthTables[i].cables.SetTruthTable(truthTable[0].truthTable);
                         // Debug.Log($"i find {Name}  cableTruthTables.");
                         break;
                     }        
@@ -891,7 +913,7 @@ public class TestLogicGate : MonoBehaviour
                 {
                     if (Name == cable16TruthTables[i].cable.Name)
                     {
-                        cable16TruthTables[i].cable.SetTruthTable(truthTable); 
+                        // cable16TruthTables[i].cable.SetTruthTable(truthTable); 
                         break;
                     }
                 }

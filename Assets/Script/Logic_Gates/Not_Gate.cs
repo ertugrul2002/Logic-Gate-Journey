@@ -60,4 +60,20 @@ public class Not_Gate  : MonoBehaviour
         // }
         
     }
+    public static List<Cable16bitTruthTable> TestIN()
+    {
+        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
+        // Row 1
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, true}));
+
+        return result;
+    }
+    public static List<Cable16bitTruthTable> TestOut()
+    {
+        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
+        // Row 1
+        result.Add(new Cable16bitTruthTable(new List<bool> { true, false}));
+
+        return result;
+    }
 }

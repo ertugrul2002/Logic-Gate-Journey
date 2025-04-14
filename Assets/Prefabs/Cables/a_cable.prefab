@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4932960429799568005}
   - component: {fileID: 7335485721830889657}
   - component: {fileID: 5737267542123273154}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: end_a
-  m_TagString: Untagged
+  m_TagString: OriginalCable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 934445061893007829}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 61.598, y: 9.3895, z: 74.4747}
-  m_LocalScale: {x: 0.05, y: 0.09, z: 0.14}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3285700758309796207}
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 014215f3f465b524f9b212088778cad2, type: 2}
+  - {fileID: 2100000, guid: 5f01c329e197a0c45b56a62ce75222d4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,10 +104,10 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 7.624583, y: 1, z: 1.0309436}
+  m_Center: {x: -0.11414298, y: 0, z: -0.015471659}
 --- !u!1 &2518475045175480635
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,7 +117,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3285700758309796207}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: a_cable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 8098039057069040533}
   - component: {fileID: 1877245726667068389}
   - component: {fileID: 3927944063256517470}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: start_a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ Transform:
   m_GameObject: {fileID: 4918294053222833987}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 61.624, y: 9.406, z: 74.5559}
+  m_LocalPosition: {x: 0, y: 0, z: -0.518}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -246,7 +246,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -260,8 +260,8 @@ GameObject:
   m_Component:
   - component: {fileID: 716694141074061270}
   - component: {fileID: 857157366057170037}
-  - component: {fileID: 6391777718977353535}
-  m_Layer: 0
+  - component: {fileID: 3695796357057525518}
+  m_Layer: 6
   m_Name: cable1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ Transform:
   m_GameObject: {fileID: 5827122663645302041}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.185074, y: 6.354, z: 12.13}
+  m_LocalPosition: {x: 62.99, y: 6.354, z: 68.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -399,7 +399,7 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &6391777718977353535
+--- !u!114 &3695796357057525518
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -412,6 +412,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 0
-  truthTable: 00000101
+  truthTable: 
   startPoint: {fileID: 7976211065266392178}
   endPoint: {fileID: 1729402947759399460}

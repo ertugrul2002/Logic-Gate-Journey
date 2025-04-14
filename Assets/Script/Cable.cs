@@ -11,11 +11,21 @@ public class Cable : MonoBehaviour
     private CableManager targetConnector = null; 
     public Transform startPoint; 
     public Transform endPoint;   
+    private bool isSelected =false;
 
-    // public CableManager getCableManager()
-    // {
-    //     return CableManager1;
-    // }
+    public CableManager getCableManager()
+    {
+        return CableManager1;
+    }
+    public void SetDragging(bool value)
+    {
+        isDragging = value;
+    }
+    public void SetIsSelected(bool value)
+    {
+        isSelected = value;
+    }
+
     public List<bool> GetTruthTable()
     {
         return truthTable;
@@ -50,32 +60,52 @@ public class Cable : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        // if (Input.GetMouseButton(0))
+        // {
+        //     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); 
+        //     if (Physics.Raycast(ray, out RaycastHit hitInfo))
+        //     {
+        //         if (hitInfo.collider.gameObject == endPoint.gameObject)
+        //         {
+        //             isDragging = true; 
+        //         }
+
+        //         // if (isDragging)
+        //         // {
+        //         //     lineRenderer.SetPosition(1, hitInfo.point);
+        //         //     CableManager connector = hitInfo.collider.GetComponent<CableManager>();
+                    
+        //         //     if (connector != null && connector.CanConnect())
+        //         //     {
+                        
+        //         //         targetConnector = connector;
+        //         //     }
+        //         //     else
+        //         //     {
+        //         //         targetConnector = null; 
+        //         //     }
+        //         // }
+                
+        //     }
+        // }
+        if (isDragging && Input.GetMouseButton(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); 
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hitInfo))
             {
-                if (hitInfo.collider.gameObject == endPoint.gameObject)
-                {
-                    isDragging = true; 
-                }
+                // تحريك نهاية السلك مع حركة الفأرة
+                lineRenderer.SetPosition(1, hitInfo.point);
 
-                if (isDragging)
+                // التحقق إذا كنت فوق موصل (connector) للتوصيل
+                CableManager connector = hitInfo.collider.GetComponent<CableManager>();
+                if (connector != null && connector.CanConnect())
                 {
-                    lineRenderer.SetPosition(1, hitInfo.point);
-                    CableManager connector = hitInfo.collider.GetComponent<CableManager>();
-                    
-                    if (connector != null && connector.CanConnect())
-                    {
-                        
-                        targetConnector = connector;
-                    }
-                    else
-                    {
-                        targetConnector = null; 
-                    }
+                    targetConnector = connector;
                 }
-                
+                else
+                {
+                    targetConnector = null;
+                }
             }
         }
         if (Input.GetMouseButtonUp(0))

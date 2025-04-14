@@ -16,6 +16,21 @@ public class Cable16bit : MonoBehaviour
     private CableManager16bit targetConnector = null; 
     public Transform startPoint; 
     public Transform endPoint;   
+    private bool isSelected =false;
+
+    public CableManager16bit getCableManager()
+    {
+        return CableManager1;
+    }
+
+    public void SetDragging(bool value)
+    {
+        isDragging = value;
+    }
+    public void SetIsSelected(bool value)
+    {
+        isSelected = value;
+    }
 
     public List<Cable16bitTruthTable> GetTruthTable()
     {
@@ -53,6 +68,7 @@ public class Cable16bit : MonoBehaviour
             {
                 if (hitInfo.collider.gameObject == endPoint.gameObject)
                 {
+                    // CableInteraction.showme();
                     isDragging = true; 
                 }
 
