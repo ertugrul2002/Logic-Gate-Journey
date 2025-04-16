@@ -64,4 +64,28 @@ public class AND_Gate : MonoBehaviour
         
         
     }
+    public static List<Cable16bitTruthTable> TestIN_A()
+    {
+        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
+        // Row 1
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, false ,true,true}));
+
+        return result;
+    }
+    public static List<Cable16bitTruthTable> TestIN_B()
+    {
+        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
+        // Row 1
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,false,true}));
+
+        return result;
+    }
+    public static List<Cable16bitTruthTable> TestOut()
+    {
+        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
+        // Row 1
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,false,true}));
+
+        return result;
+    }
 }

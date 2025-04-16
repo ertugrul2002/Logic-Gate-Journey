@@ -52,6 +52,7 @@ public class Nand_Gate  : MonoBehaviour
         List<bool> newTruthTable = new List<bool>(truthTableA);
         for (int i = 0; i < truthTableA.Count; i++)
         {
+             Debug.Log("Input A NANDGate: " + i);
             newTruthTable[i] = !(truthTableA[i] && truthTableB[i]);
         }
         return newTruthTable;

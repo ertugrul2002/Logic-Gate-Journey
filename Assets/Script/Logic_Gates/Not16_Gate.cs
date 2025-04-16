@@ -9,13 +9,13 @@ public class Not16_Gate : MonoBehaviour
     {
         ID_Gate = id;
     }
-    [SerializeField] private CableManager input; 
-    public Cable Out;
-    public Cable getCable()
+    [SerializeField] private CableManager16bit input; 
+    public ButtonController Out;
+    public ButtonController getCable()
     {
         return Out;
     }
-    public CableManager getInput()
+    public CableManager16bit getInput()
     {
         return input;
     }
@@ -41,12 +41,15 @@ public class Not16_Gate : MonoBehaviour
             
         }
     }
-    private List<bool> Evaluate(List<bool> truthTable)
+    private List<Cable16bitTruthTable> Evaluate(List<Cable16bitTruthTable> truthTable)
     {
-        List<bool> newTruthTable = new List<bool>(truthTable);
+        List<Cable16bitTruthTable> newTruthTable = new List<Cable16bitTruthTable>(truthTable);
         for (int i = 0; i < truthTable.Count; i++)
         {
-            newTruthTable[i] = !truthTable[i];
+            for (int j=0;j< truthTable[i].truthTable.Count ;j++)
+            {
+                newTruthTable[i].truthTable[j] = !(truthTable[i].truthTable[j]);
+            }
         }
         return newTruthTable;
     }

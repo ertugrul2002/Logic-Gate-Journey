@@ -10,8 +10,8 @@ public class Not_Gate  : MonoBehaviour
         ID_Gate = id;
     }
     [SerializeField] private CableManager input; 
-    public Cable Out;
-    public Cable getCable()
+    public ButtonController1bit Out;
+    public ButtonController1bit getCable()
     {
         return Out;
     }

@@ -106,6 +106,13 @@ public class Cable : MonoBehaviour
                 {
                     targetConnector = null;
                 }
+                ButtonController_CableManager connectorCableManager=hitInfo.collider.GetComponent<ButtonController_CableManager>();
+                if(connectorCableManager != null )
+                {
+                    connectorCableManager.ShowBitSelectionUI();
+                    connectorCableManager.SetIsSelected(true);
+                    connectorCableManager.SetSelectedCable(this);
+                }
             }
         }
         if (Input.GetMouseButtonUp(0))

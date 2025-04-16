@@ -18,10 +18,10 @@ public class AND16_Gate : MonoBehaviour
     }
     [SerializeField] private CableManager16bit inputA; 
     [SerializeField] private CableManager16bit inputB; 
-    public Cable16bit Out;
+    public ButtonController16bit Out;
     private bool isConnected =false;
     
-    public Cable16bit getCable()
+    public ButtonController16bit getCable()
     {
         return Out;
     }

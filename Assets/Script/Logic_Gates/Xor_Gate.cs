@@ -11,10 +11,10 @@ public class Xor_Gate : MonoBehaviour
     }
     [SerializeField] private CableManager inputA; 
     [SerializeField] private CableManager inputB; 
-    public Cable Out;
+    public ButtonController1bit Out;
     private bool isConnected =false;
     
-    public Cable getCable()
+    public ButtonController1bit getCable()
     {
         return Out;
     }

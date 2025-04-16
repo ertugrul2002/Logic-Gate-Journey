@@ -14,15 +14,15 @@ public class Dmux_Gate : MonoBehaviour
     [SerializeField] private CableManager inputIn; 
 
     [SerializeField] private CableManager inputSel; 
-    public Cable OutB;
-    public Cable OutA;
+    public ButtonController1bit OutB;
+    public ButtonController1bit OutA;
     private bool isConnected =false;
     
-    public Cable getCableA()
+    public ButtonController1bit getCableA()
     {
         return OutA;
     }
-    public Cable getCableB()
+    public ButtonController1bit getCableB()
     {
         return OutB;
     }

@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 
 
-public class ButtonController1bit : MonoBehaviour
+public class ButtonController16bit : MonoBehaviour
 {
     public  ConnectorType Name;
     public GameObject bitSelectionPanel;
     public Vector3 panelOffset = new Vector3(100f, 0f, 0f);
-    [SerializeField] public List<bool> truthTable = new List<bool>(){};
+    [SerializeField] public List<Cable16bitTruthTable> truthTable = new List<Cable16bitTruthTable>(){};
     [SerializeField] public Button AddButton;
     [SerializeField] private GameObject prefabToSpawnCable;
-    private List<Cable> spawnedCables = new List<Cable>(new Cable[16]);
+    private List<ButtonController> spawnedCables = new List<ButtonController>(new ButtonController[10]){};
     [SerializeField] private List<GameObject> bitButtons = new List<GameObject>(){};
     private int index=0;
     
@@ -34,25 +34,20 @@ public class ButtonController1bit : MonoBehaviour
         AddButton.onClick.AddListener(AddButtonListener);
     }
 
-    public List<bool> GetTruthTable()
+    public List<Cable16bitTruthTable> GetTruthTable()
     {
         return truthTable;
     }
 
-    public void SetTruthTable(List<bool> newTruthTable)
+    public void SetTruthTable(List<Cable16bitTruthTable> newTruthTable)
     {
-        
-        if (truthTable.Count != newTruthTable.Count)
+
+        truthTable.Clear();
+        foreach (var item in newTruthTable)
         {
-            truthTable = new List<bool>(newTruthTable); 
+            truthTable.Add(new Cable16bitTruthTable(new List<bool>(item.truthTable))); 
         }
-        else
-        {
-            for (int i = 0; i < newTruthTable.Count; i++)
-            {
-                truthTable[i] = newTruthTable[i];
-            }
-        }
+
     }
 
     void ShowBitSelectionUI()
@@ -66,10 +61,11 @@ public class ButtonController1bit : MonoBehaviour
     {
         if (spawnedCables[bitIndex] != null)
         {
-            // Debug.Log($"i have a cable on {bitIndex} button");
-            Cable existingCable = spawnedCables[bitIndex];
-            existingCable.SetDragging(true);
-            existingCable.SetIsSelected(true);
+            Debug.Log($"i have a cable on {bitIndex} button");
+            ButtonController existingCable = spawnedCables[bitIndex];
+            bitSelectionPanel.SetActive(false);
+            existingCable.ShowBitSelectionUI();
+
             // Debug.Log("dragging");
         }
         else
@@ -77,20 +73,19 @@ public class ButtonController1bit : MonoBehaviour
             if (prefabToSpawnCable != null)
             {
                 
-                GameObject newCable = Instantiate(prefabToSpawnCable, transform.position, transform.rotation, transform.parent);
+                GameObject newCable = Instantiate(prefabToSpawnCable, transform.position, transform.rotation, transform);
                 newCable.transform.localScale = transform.localScale;
-                Transform cable1Transform = newCable.transform.Find("cable1");
-
-                if (cable1Transform != null)
+                
+                if (newCable != null)
                 {
-                    Cable cableScript = cable1Transform.GetComponent<Cable>();
+                    ButtonController cableScript = newCable.GetComponent<ButtonController>();
                     if (cableScript != null)
                     {
                         spawnedCables[bitIndex] = cableScript;
                         cableScript.SetTruthTable(truthTable);
-                        // Debug.Log($"sameh {spawnedCables[bitIndex] == null}");
-                        cableScript.SetDragging(true);
-                        cableScript.SetIsSelected(true);
+                        Debug.Log($"sameh16 {spawnedCables[bitIndex] == null}");
+                        bitSelectionPanel.SetActive(false);
+                        cableScript.ShowBitSelectionUI();
                     }
                     else
                     {
@@ -108,7 +103,7 @@ public class ButtonController1bit : MonoBehaviour
 
     public void AddButtonListener()
     {
-        // Debug.Log("Selected add button");
+        Debug.Log("Selected add button");
         if(index <10)
         {
             index++;
@@ -120,13 +115,14 @@ public class ButtonController1bit : MonoBehaviour
         }
         else
         {
-        //    Debug.Log("you can not add button any more"); 
+           Debug.Log("you can not add button any more"); 
         } 
         
     }
 
     public void OnBitSelected(int bitIndex)
     {
+        Debug.Log($"Selected  button {bitIndex}");
         Creat_A_Cable(bitIndex);
     }
 
@@ -140,7 +136,7 @@ public class ButtonController1bit : MonoBehaviour
         
         if (bitSelectionPanel.activeSelf)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha0) && bitButtons[0] != null && bitButtons[0].GetComponent<Button>().interactable && bitButtons[0].activeSelf)
+            if (Input.GetKeyDown(KeyCode.F) && bitButtons[0] != null && bitButtons[0].GetComponent<Button>().interactable && bitButtons[0].activeSelf)
             {
                 bitSelectionPanel.SetActive(false);
                 OnBitSelected(0);
