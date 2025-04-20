@@ -946,7 +946,7 @@ public class Test_WorkSpace : MonoBehaviour
                 {
                     if (Name == cableTruthTables[i].cables.Name)
                     {
-                        Debug.Log("Input A notGate: " + string.Join(", ", truthTable[0].truthTable));
+                        // Debug.Log("Input A notGate: " + string.Join(", ", truthTable[0].truthTable));
                         // Debug.Log($"i find {cableTruthTables[i].cable}  cableTruthTables. {truthTable[0].truthTable}");
                         // cableTruthTables[i].cable.SetTruthTable(truthTable[0].truthTable); 
                         cableTruthTables[i].cables.SetTruthTable(truthTable[0].truthTable);

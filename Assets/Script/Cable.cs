@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+
 using System.Collections.Generic;
 public class Cable : MonoBehaviour
 {
@@ -12,6 +14,18 @@ public class Cable : MonoBehaviour
     public Transform startPoint; 
     public Transform endPoint;   
     private bool isSelected =false;
+    private Button button_cableManager =null;
+
+    public void SetTargetConnector(CableManager value)
+    {
+        targetConnector = value;
+    }
+
+    public void SetButton_cableManager(Button value)
+    {
+        button_cableManager = value;
+    }
+    
 
     public CableManager getCableManager()
     {
@@ -93,25 +107,23 @@ public class Cable : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hitInfo))
             {
-                // تحريك نهاية السلك مع حركة الفأرة
                 lineRenderer.SetPosition(1, hitInfo.point);
 
-                // التحقق إذا كنت فوق موصل (connector) للتوصيل
                 CableManager connector = hitInfo.collider.GetComponent<CableManager>();
+                ButtonController_CableManager connectorCableManager=hitInfo.collider.GetComponent<ButtonController_CableManager>();
                 if (connector != null && connector.CanConnect())
                 {
                     targetConnector = connector;
                 }
+                else if(connectorCableManager != null )
+                {
+                    connectorCableManager.SetIsSelected(true);
+                    connectorCableManager.SetSelectedCable(this);
+                    connectorCableManager.ShowBitSelectionUI();
+                }
                 else
                 {
                     targetConnector = null;
-                }
-                ButtonController_CableManager connectorCableManager=hitInfo.collider.GetComponent<ButtonController_CableManager>();
-                if(connectorCableManager != null )
-                {
-                    connectorCableManager.ShowBitSelectionUI();
-                    connectorCableManager.SetIsSelected(true);
-                    connectorCableManager.SetSelectedCable(this);
                 }
             }
         }
@@ -127,6 +139,7 @@ public class Cable : MonoBehaviour
                 lineRenderer.SetPosition(1, targetConnector.transform.position);
                 targetConnector.ConnectCable(this);
                 CableManager1 = targetConnector; 
+                Debug.Log("save cable");
             }
             isDragging = false;
         }
@@ -134,6 +147,10 @@ public class Cable : MonoBehaviour
         {
             if (CableManager1 != null)
             {
+                if (button_cableManager != null)
+                {
+                    button_cableManager.interactable = true;
+                }
                 CableManager1.DisconnectCable();
                 CableManager1=null;
             }

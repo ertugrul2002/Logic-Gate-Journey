@@ -88,6 +88,10 @@ public class ButtonController1bit : MonoBehaviour
                     {
                         spawnedCables[bitIndex] = cableScript;
                         cableScript.SetTruthTable(truthTable);
+                        // if (cableScript.getCableManager() != null )
+                        // {
+                        //     bitButtons[0].GetComponent<Button>().interactable = false;
+                        // }
                         // Debug.Log($"sameh {spawnedCables[bitIndex] == null}");
                         cableScript.SetDragging(true);
                         cableScript.SetIsSelected(true);

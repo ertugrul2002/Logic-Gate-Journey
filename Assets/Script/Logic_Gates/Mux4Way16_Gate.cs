@@ -15,10 +15,10 @@ public class Mux4Way16_Gate : MonoBehaviour
     [SerializeField] private CableManager16bit inputC; 
     [SerializeField] private CableManager16bit inputD; 
     [SerializeField] private CableManager16bit inputSel; 
-    public Cable16bit Out;
+    public ButtonController16bit Out;
     private bool isConnected =false;
     
-    public Cable16bit getCable()
+    public ButtonController16bit getCable()
     {
         return Out;
     }

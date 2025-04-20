@@ -10,8 +10,8 @@ public class Not16_Gate : MonoBehaviour
         ID_Gate = id;
     }
     [SerializeField] private CableManager16bit input; 
-    public ButtonController Out;
-    public ButtonController getCable()
+    public ButtonController16bit Out;
+    public ButtonController16bit getCable()
     {
         return Out;
     }

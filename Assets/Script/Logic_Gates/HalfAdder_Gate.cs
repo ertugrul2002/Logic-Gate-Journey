@@ -12,15 +12,15 @@ public class HalfAdder_Gate : MonoBehaviour
     }
     [SerializeField] private CableManager inputA; 
     [SerializeField] private CableManager inputB; 
-    public Cable sum;
-    public Cable carry;
+    public ButtonController1bit sum;
+    public ButtonController1bit carry;
     private bool isConnected =false;
     
-    public Cable getCarry()
+    public ButtonController1bit getCarry()
     {
         return carry;
     }
-    public Cable getSum()
+    public ButtonController1bit getSum()
     {
         return sum;
     }

@@ -12,10 +12,10 @@ public class OR16_Gate : MonoBehaviour
     }
     [SerializeField] private CableManager16bit inputA; 
     [SerializeField] private CableManager16bit inputB; 
-    public ButtonController Out;
+    public ButtonController16bit Out;
     private bool isConnected =false;
     
-    public ButtonController getCable()
+    public ButtonController16bit getCable()
     {
         return Out;
     }

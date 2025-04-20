@@ -53,10 +53,10 @@ public class ButtonController : MonoBehaviour
             Cable existingCable = spawnedCables[bitIndex];
             existingCable.SetDragging(true);
             existingCable.SetIsSelected(true);
-            if (existingCable.getCableManager() != null)
-            {
-                bitButtons[bitIndex].interactable = false;
-            }
+            // if (existingCable.getCableManager() != null)
+            // {
+            //     bitButtons[bitIndex].interactable = false;
+            // }
             // Debug.Log("dragging");
         }
         else
@@ -78,14 +78,15 @@ public class ButtonController : MonoBehaviour
                     if (cableScript != null)
                     {
                         spawnedCables[bitIndex] = cableScript;
-                        cableScript.SetTruthTable(truthTable[bitIndex].truthTable);
+                        // cableScript.SetTruthTable(truthTable[bitIndex].truthTable);
                         Debug.Log($"sameh {spawnedCables[bitIndex] == null}");
                         cableScript.SetDragging(true);
                         cableScript.SetIsSelected(true);
-                        if (cableScript.getCableManager() != null )
-                        {
-                            bitButtons[bitIndex].interactable = false;
-                        }
+                        // if (cableScript.getCableManager() != null )
+                        // {
+                        //     bitButtons[bitIndex].interactable = false;
+                        //     cableScript.SetButton_cable( bitButtons[bitIndex]);
+                        // }
                         // Debug.Log("dragging");
                     }
                     else
