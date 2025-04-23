@@ -206,14 +206,14 @@ public class ButtonController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Alpha0) && bitButtons[0] != null && bitButtons[0].interactable )
             {
-                bitButtons[0].onClick.Invoke();
-                // Debug.Log("الكائن ظهر!");
+                // bitButtons[0].onClick.Invoke();
+                Debug.Log("الكائن ظهر! 0");
                 bitSelectionPanel.SetActive(false);
                 OnBitSelected(0);
             }
             else if (Input.GetKeyDown(KeyCode.Alpha1) && bitButtons[1] != null && bitButtons[1].interactable)
             {
-                bitButtons[1].onClick.Invoke();
+                // bitButtons[1].onClick.Invoke();
                 bitSelectionPanel.SetActive(false);
                 OnBitSelected(1);
             }
