@@ -215,22 +215,6 @@ public class Mux4Way16_Gate : MonoBehaviour
 
         return result;
     }
-    public static List<Cable16bitTruthTable> TestIN_SEL0()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-
-        // Row 0
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, false, true, true, false, false, true, true }));
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestIN_SEL1()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 1
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, true, false, true, false, true, false, true }));
-
-        return result;
-    }
 
     public static List<Cable16bitTruthTable> TestOUT()
     {

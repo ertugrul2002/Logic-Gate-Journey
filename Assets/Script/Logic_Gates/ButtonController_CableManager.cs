@@ -8,7 +8,7 @@ public class ButtonController_CableManager : MonoBehaviour
     public  ConnectorType Name;
     public GameObject bitSelectionPanel;
     public Vector3 panelOffset = new Vector3(100f, 0f, 0f);
-    [SerializeField] public List<Cable16bitTruthTable> truthTable = new List<Cable16bitTruthTable>(){};
+    [SerializeField] public List<Cable16bitTruthTable> truthTable = new List<Cable16bitTruthTable>(new Cable16bitTruthTable[16]);
     [SerializeField] public Button myButton;
     // [SerializeField] public Button myButton1;
     // [SerializeField] public Button myButton2;
@@ -21,6 +21,16 @@ public class ButtonController_CableManager : MonoBehaviour
     private Cable selectedCable= null;
     private int index=0;
 
+    public int getSizeTruthTable()
+    {
+        return index;
+    }
+
+    public List<CableManager> GetSpawnedCable_managers()
+    {
+        return spawnedCables;
+    }
+
     public void SetSelectedCable(Cable cable)
     {
         selectedCable=cable;
@@ -30,6 +40,21 @@ public class ButtonController_CableManager : MonoBehaviour
         iselected=value;
     }
     
+    public bool GetIsSelected()
+    {
+        return iselected;
+    }
+    public List<Cable16bitTruthTable> GetTruthTable()
+    {
+        return truthTable;
+    }
+    void Awake()
+    {
+        for (int i = 0; i < 16; i++)
+        {
+            truthTable.Add(new Cable16bitTruthTable(new List<bool>(new bool[16])));
+        }
+    }
     void Start()
     {
         bitSelectionPanel.SetActive(false);
@@ -45,7 +70,23 @@ public class ButtonController_CableManager : MonoBehaviour
         // Debug.Log($"New cable active: {bitSelectionPanel.activeSelf}");
         bitSelectionPanel.transform.position = screenPos + panelOffset;
     }
-
+    public void CloseBitSelectionUI()
+    {
+        
+        bitSelectionPanel.SetActive(false);
+        
+    }
+    public void printALLTruthTables()
+    {
+        for(int i=0;i<spawnedCables.Count;i++)
+        {
+            if(spawnedCables[i] != null)
+            {
+                Debug.Log("  "+i +" "+ string.Join(", ", spawnedCables[i].getConnectedCable().GetTruthTable()));
+                Debug.Log("  "+i +" "+ string.Join(", ", truthTable[i].truthTable));
+            }
+        }
+    }
 
 
     public void Creat_A_Cable(int bitIndex)
@@ -90,7 +131,7 @@ public class ButtonController_CableManager : MonoBehaviour
                 newCable.transform.localScale = transform.localScale;
                 // Transform cable1Transform = newCable.transform.Find("cable1");
                 
-                Debug.Log("added");
+                Debug.Log($"added cable manager {bitIndex}");
 
                 if (newCable != null)
                 {
@@ -98,8 +139,7 @@ public class ButtonController_CableManager : MonoBehaviour
                     if (cableScript != null)
                     {
                         spawnedCables[bitIndex] = cableScript;
-                        Debug.Log($"sameh {spawnedCables[bitIndex] == null}");
-                        
+                        Debug.Log($"sameh {spawnedCables[bitIndex] == null} cable manager");
                         if (!cableScript.CanConnect() )
                         {
                             Debug.Log("it is full");
@@ -109,10 +149,12 @@ public class ButtonController_CableManager : MonoBehaviour
                             if(selectedCable != null)
                             {
                                 cableScript.ConnectCable(selectedCable);
-                                
+                                truthTable[bitIndex].truthTable = new List<bool>(selectedCable.truthTable);
                                 selectedCable.SetButton_cableManager( bitButtons[bitIndex]);
                                 selectedCable.SetTargetConnector(cableScript);
                                 index++;
+                            
+                                printALLTruthTables();
                                 Debug.Log("selectedCable  wall3at");
                             }
                             else
@@ -218,10 +260,16 @@ public class ButtonController_CableManager : MonoBehaviour
 
     void Update()
     {
-        if( !iselected )
-        {
-            bitSelectionPanel.SetActive(false);
-        }
+        // if( iselected )
+        // {
+            
+        //     bitSelectionPanel.SetActive(true);
+        // }
+        // if(!iselected )
+        // {
+            
+        //     bitSelectionPanel.SetActive();
+        // }
         // for (int i=0;i<index;i++)
         // {
         //     if(spawnedCables[i].CanConnect())
@@ -247,98 +295,100 @@ public class ButtonController_CableManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Alpha0) && bitButtons[0] != null && bitButtons[0].interactable && iselected)
             {
                 // bitButtons[0].onClick.Invoke();
-                // Debug.Log("الكائن ظهر!");
-                bitSelectionPanel.SetActive(false);
+                // Debug.Log("الكائن ظهر!00000");
+                bitButtons[0].interactable = false;
+                // bitSelectionPanel.SetActive(false);
                 OnBitSelected(0);
             }
             else if (Input.GetKeyDown(KeyCode.Alpha1) && bitButtons[1] != null && bitButtons[1].interactable && iselected)
             {
-                bitButtons[1].onClick.Invoke();
+                // bitButtons[1].onClick.Invoke();
                 bitSelectionPanel.SetActive(false);
                 OnBitSelected(1);
             }
             else if (Input.GetKeyDown(KeyCode.Alpha2) && bitButtons[2] != null && bitButtons[2].interactable && iselected)
             {
-                bitButtons[2].onClick.Invoke();
+                // bitButtons[2].onClick.Invoke();
                 bitSelectionPanel.SetActive(false);
                 OnBitSelected(2);
             }
             else if (Input.GetKeyDown(KeyCode.Alpha3) && bitButtons[3] != null && bitButtons[3].interactable && iselected)
             {
-                bitButtons[3].onClick.Invoke();
+                // bitButtons[3].onClick.Invoke();
                 bitSelectionPanel.SetActive(false);
                 OnBitSelected(3);
             }
             else if (Input.GetKeyDown(KeyCode.Alpha4) && bitButtons[4] != null && bitButtons[4].interactable && iselected)
             {
-                bitButtons[4].onClick.Invoke();
+                // bitButtons[4].onClick.Invoke();
                 bitSelectionPanel.SetActive(false);
                 OnBitSelected(4);
             }
             else if (Input.GetKeyDown(KeyCode.Alpha5) && bitButtons[5] != null && bitButtons[5].interactable && iselected)
             {
-                bitButtons[5].onClick.Invoke();
+                // bitButtons[5].onClick.Invoke();
                 bitSelectionPanel.SetActive(false);
                 OnBitSelected(5);
             }
             else if (Input.GetKeyDown(KeyCode.Alpha6) && bitButtons[6] != null && bitButtons[6].interactable && iselected)
             {
-                bitButtons[6].onClick.Invoke();
+                // bitButtons[6].onClick.Invoke();
                 bitSelectionPanel.SetActive(false);
                 OnBitSelected(6);
             }
             else if (Input.GetKeyDown(KeyCode.Alpha7) && bitButtons[7] != null && bitButtons[7].interactable && iselected)
             {
-                bitButtons[7].onClick.Invoke();
+                // bitButtons[7].onClick.Invoke();
                 bitSelectionPanel.SetActive(false);
                 OnBitSelected(7);
             }
             else if (Input.GetKeyDown(KeyCode.Alpha8) && bitButtons[8] != null && bitButtons[8].interactable && iselected)
             {
-                bitButtons[8].onClick.Invoke();
+                // bitButtons[8].onClick.Invoke();
                 bitSelectionPanel.SetActive(false);
+                OnBitSelected(8);
 
             }
             else if (Input.GetKeyDown(KeyCode.Alpha9) && bitButtons[9] != null && bitButtons[9].interactable && iselected)
             {
-                bitButtons[9].onClick.Invoke();
+                // bitButtons[9].onClick.Invoke();
                 bitSelectionPanel.SetActive(false);
                 OnBitSelected(9);
             }
             // مفاتيح بديلة لـ 10 إلى 15 (لأن KeyCode.10 إلى KeyCode.15 مش موجودة)
-            else if (Input.GetKeyDown(KeyCode.Q) && bitButtons[10] != null && bitButtons[10].interactable && iselected)
+            else if (Input.GetKeyDown(KeyCode.Z) && bitButtons[10] != null && bitButtons[10].interactable && iselected)
             {
-                bitButtons[10].onClick.Invoke();
+                // bitButtons[10].onClick.Invoke();
                 bitSelectionPanel.SetActive(false);
                 OnBitSelected(10);
             }
-            else if (Input.GetKeyDown(KeyCode.W) && bitButtons[11] != null && bitButtons[11].interactable && iselected)
+            else if (Input.GetKeyDown(KeyCode.X) && bitButtons[11] != null && bitButtons[11].interactable && iselected)
             {
-                bitButtons[11].onClick.Invoke();
+                // bitButtons[11].onClick.Invoke();
                 bitSelectionPanel.SetActive(false);
                 OnBitSelected(11);
             }
-            else if (Input.GetKeyDown(KeyCode.E) && bitButtons[12] != null && bitButtons[12].interactable && iselected)
+            else if (Input.GetKeyDown(KeyCode.C) && bitButtons[12] != null && bitButtons[12].interactable && iselected)
             {
-                bitButtons[12].onClick.Invoke();
+                // bitButtons[12].onClick.Invoke();
                 bitSelectionPanel.SetActive(false);
                 OnBitSelected(12);
             }
-            else if (Input.GetKeyDown(KeyCode.R) && bitButtons[13] != null && bitButtons[13].interactable && iselected)
+            else if (Input.GetKeyDown(KeyCode.V) && bitButtons[13] != null && bitButtons[13].interactable && iselected)
             {
-                bitButtons[13].onClick.Invoke();
+                // bitButtons[13].onClick.Invoke();
                 bitSelectionPanel.SetActive(false);
                 OnBitSelected(13);
             }
-            else if (Input.GetKeyDown(KeyCode.T) && bitButtons[14] != null && bitButtons[14].interactable && iselected)
+            else if (Input.GetKeyDown(KeyCode.B) && bitButtons[14] != null && bitButtons[14].interactable && iselected)
             {
-                bitButtons[14].onClick.Invoke();
+                // bitButtons[14].onClick.Invoke();
                 bitSelectionPanel.SetActive(false);
                 OnBitSelected(14);
             }
-            else if (Input.GetKeyDown(KeyCode.Y) && bitButtons[15] != null && bitButtons[15].interactable && iselected)
+            else if (Input.GetKeyDown(KeyCode.N) && bitButtons[15] != null && bitButtons[15].interactable && iselected)
             {
-                bitButtons[15].onClick.Invoke();
+                // bitButtons[15].onClick.Invoke();
                 bitSelectionPanel.SetActive(false);
                 OnBitSelected(15);
             }

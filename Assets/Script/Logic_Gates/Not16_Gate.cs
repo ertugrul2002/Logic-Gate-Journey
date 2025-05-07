@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 public class Not16_Gate : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -63,4 +64,61 @@ public class Not16_Gate : MonoBehaviour
         // }
         
     }
+    public static List<Cable16bitTruthTable> TestIN()
+    {
+        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
+        // Row 0
+        result.Add(new Cable16bitTruthTable(new List<bool> { false ,true ,true ,false ,false}));
+        // Row 1
+        result.Add(new Cable16bitTruthTable(new List<bool> { false ,true ,false ,false ,false}));
+        // Row 2
+        result.Add(new Cable16bitTruthTable(new List<bool> { false ,true ,true ,true ,false}));
+        // Row 3
+        result.Add(new Cable16bitTruthTable(new List<bool> { false ,true ,false ,true ,true}));
+        // Row 4
+        result.Add(new Cable16bitTruthTable(new List<bool> { false ,true ,true ,true ,false}));
+        // Row 5
+        result.Add(new Cable16bitTruthTable(new List<bool> { false ,true ,false ,true ,false}));
+        // Row 6
+        result.Add(new Cable16bitTruthTable(new List<bool> { false ,true ,true ,false ,true}));
+        // Row 7
+        result.Add(new Cable16bitTruthTable(new List<bool> { false ,true ,false ,false ,false}));
+        // Row 8
+        result.Add(new Cable16bitTruthTable(new List<bool> { false ,true ,true ,true ,false}));
+        // Row 9
+        result.Add(new Cable16bitTruthTable(new List<bool> { false ,true ,false ,true ,false}));
+        // Row 10
+        result.Add(new Cable16bitTruthTable(new List<bool> { false ,true ,true ,false ,true}));
+        // Row 11
+        result.Add(new Cable16bitTruthTable(new List<bool> { false ,true ,false ,false ,true}));
+        // Row 12
+        result.Add(new Cable16bitTruthTable(new List<bool> { false ,true ,true ,false ,false}));
+        // Row 13
+        result.Add(new Cable16bitTruthTable(new List<bool> { false ,true ,false ,false ,true}));
+        // Row 14
+        result.Add(new Cable16bitTruthTable(new List<bool> { false ,true ,true ,true ,false}));
+        // Row 15
+        result.Add(new Cable16bitTruthTable(new List<bool> { false ,true ,false ,true ,false}));
+
+        return result;
+    }
+
+    public static List<Cable16bitTruthTable> TestOUT()
+    {
+        List<Cable16bitTruthTable> original = TestIN();
+        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
+
+        foreach (var cable in original)
+        {
+            List<bool> invertedTruth = cable.truthTable
+                .Select(bit => !bit) 
+                .ToList();
+
+            result.Add(new Cable16bitTruthTable(invertedTruth));
+        }
+
+        return result;
+    }
+
+
 }

@@ -35,6 +35,7 @@ public class CableTruthTable
 public class CableManagerTruthTable16bit
 {
     public CableManager16bit cableManager; 
+    public ButtonController_CableManager cableManagers;
     // public CableManager16bit cableManager16bit;
     public List<Cable16bitTruthTable> truthTable = new List<Cable16bitTruthTable>(){}; 
 }
@@ -42,6 +43,7 @@ public class CableManagerTruthTable16bit
 public class CableTruthTable16bit
 {
     public Cable16bit cable; 
+    public ButtonController16bit cables;
     // public Cable16bit cable16bit;
     public List<Cable16bitTruthTable> truthTable = new List<Cable16bitTruthTable>(){}; 
 }
@@ -50,7 +52,7 @@ public class Test_WorkSpace : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private LogicGates_Type Name; 
-    [SerializeField] private Door door; 
+    [SerializeField] private Micanical_door door; 
     [SerializeField] private List<CableTruthTable> cableTruthTables = new List<CableTruthTable>(){};
     [SerializeField] private List<CableManagerTruthTableT> cableManagaerTruthTables = new List<CableManagerTruthTableT>(){};
     [SerializeField] private List<CableTruthTable16bit> cable16TruthTables = new List<CableTruthTable16bit>(){};
@@ -62,18 +64,55 @@ public class Test_WorkSpace : MonoBehaviour
 
     private void Not_Gate_tests()
     {
-        SearchAndPrintCable(ConnectorType.InA,Not_Gate.TestIN(),CableTypes.c1);
+        SearchAndPrintCable(ConnectorType.In,Not_Gate.TestIN(),CableTypes.c1);
+    }
+    private void Not16_Gate_tests()
+    {
+        SearchAndPrintCable(ConnectorType.In,Not16_Gate.TestIN(),CableTypes.c16);
     }
     private void And_Gate_tests()
     {
         SearchAndPrintCable(ConnectorType.InA,AND_Gate.TestIN_A(),CableTypes.c1);
         SearchAndPrintCable(ConnectorType.InB,AND_Gate.TestIN_B(),CableTypes.c1);
     }
+    private void And16_Gate_tests()
+    {
+        SearchAndPrintCable(ConnectorType.InA,AND16_Gate.TestIN_A(),CableTypes.c16);
+        SearchAndPrintCable(ConnectorType.InB,AND16_Gate.TestIN_B(),CableTypes.c16);
+    }
 
+    private void Xor_Gate_tests()
+    {
+        SearchAndPrintCable(ConnectorType.InA,Xor_Gate.TestIN_A(),CableTypes.c1);
+        SearchAndPrintCable(ConnectorType.InB,Xor_Gate.TestIN_B(),CableTypes.c1);
+    }
+    private void Mux_Gate_tests()
+    {
+        SearchAndPrintCable(ConnectorType.InA,Mux_Gate.TestIN_A(),CableTypes.c1);
+        SearchAndPrintCable(ConnectorType.InB,Mux_Gate.TestIN_B(),CableTypes.c1);
+        SearchAndPrintCable(ConnectorType.InSel,Mux_Gate.TestIN_SEL(),CableTypes.c1);
+    }
+    private void Dmux_Gate_tests()
+    {
+        SearchAndPrintCable(ConnectorType.InA,Dmux_Gate.TestIN_IN(),CableTypes.c1);
+        SearchAndPrintCable(ConnectorType.InB,Dmux_Gate.TestIN_SEL(),CableTypes.c1);
+    }
     private void Or_Gate_tests()
     {
         SearchAndPrintCable(ConnectorType.InA,OR_Gate.TestIN_A(),CableTypes.c1);
         SearchAndPrintCable(ConnectorType.InB,OR_Gate.TestIN_B(),CableTypes.c1);
+    }
+    private void Or16_Gate_tests()
+    {
+        SearchAndPrintCable(ConnectorType.InA,OR16_Gate.TestIN_A(),CableTypes.c16);
+        SearchAndPrintCable(ConnectorType.InB,OR16_Gate.TestIN_B(),CableTypes.c16);
+    }
+
+    private void Mux16_Gate_tests()
+    {
+        SearchAndPrintCable(ConnectorType.InA,Mux16_Gate.TestIN_A(),CableTypes.c16);
+        SearchAndPrintCable(ConnectorType.InB,Mux16_Gate.TestIN_B(),CableTypes.c16);
+        SearchAndPrintCable(ConnectorType.InSel,Mux16_Gate.TestIN_SEL(),CableTypes.c1);
     }
 
     private void Mux4Way16_Gate_tests()
@@ -83,10 +122,6 @@ public class Test_WorkSpace : MonoBehaviour
         SearchAndPrintCable(ConnectorType.InC,Mux4Way16_Gate.TestIN_C(),CableTypes.c16);
         SearchAndPrintCable(ConnectorType.InD,Mux4Way16_Gate.TestIN_D(),CableTypes.c16);
         SearchAndPrintCable(ConnectorType.InSel,Mux4Way16_Gate.TestIN_SEL(),CableTypes.c16);
-        // SearchAndPrintCable(ConnectorType.InSel0n1,Mux4Way16_Gate.TestIN_SEL0(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InSel0n2,Mux4Way16_Gate.TestIN_SEL0(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InSel1n1,Mux4Way16_Gate.TestIN_SEL1(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InSel1n2,Mux4Way16_Gate.TestIN_SEL1(),CableTypes.c1);
     }
 
     private void Mux8Way16_Gate_tests()
@@ -115,98 +150,79 @@ public class Test_WorkSpace : MonoBehaviour
 
     private void Dmux4Way_Gate_tests()
     {
-        //IN
-        // SearchAndPrintCable(ConnectorType.In1,Dmux4Way_Gate.TestIN(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.In2,Dmux4Way_Gate.TestIN(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.In3,Dmux4Way_Gate.TestIN(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.In4,Dmux4Way_Gate.TestIN(),CableTypes.c1);
-        //SEL0
-        // SearchAndPrintCable(ConnectorType.InSel0n1,Dmux4Way_Gate.TestIN_SEL0(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InSel0n2,Dmux4Way_Gate.TestIN_SEL0(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InSel0n3,Dmux4Way_Gate.TestIN_SEL0(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InSel0n4,Dmux4Way_Gate.TestIN_SEL0(),CableTypes.c1);
-        // //SEL1
-        // SearchAndPrintCable(ConnectorType.InSel1n1,Dmux4Way_Gate.TestIN_SEL1(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InSel1n2,Dmux4Way_Gate.TestIN_SEL1(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InSel1n3,Dmux4Way_Gate.TestIN_SEL1(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InSel1n4,Dmux4Way_Gate.TestIN_SEL1(),CableTypes.c1);
+        
+        SearchAndPrintCable(ConnectorType.In,Dmux4Way_Gate.TestIN(),CableTypes.c1);
+        SearchAndPrintCable(ConnectorType.InSel,Dmux4Way_Gate.TestIN_SEL(),CableTypes.c16);
+        
     }
     private void HalfAdder_Gate_tests()
     {
-        // A
         SearchAndPrintCable(ConnectorType.InA,HalfAdder_Gate.TestA(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InA1,HalfAdder_Gate.TestA(),CableTypes.c1);
-        // B
         SearchAndPrintCable(ConnectorType.InB,HalfAdder_Gate.TestB(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InB1,HalfAdder_Gate.TestB(),CableTypes.c1);
         
     }
     private void FullAdder_Gate_tests()
     {
-        // A
         SearchAndPrintCable(ConnectorType.InA,FullAdder_Gate.TestA(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InA1,FullAdder_Gate.TestA(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InA2,FullAdder_Gate.TestA(),CableTypes.c1);
-        // B
         SearchAndPrintCable(ConnectorType.InB,FullAdder_Gate.TestB(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InB1,FullAdder_Gate.TestB(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InB2,FullAdder_Gate.TestB(),CableTypes.c1);
-        // C
         SearchAndPrintCable(ConnectorType.InC,FullAdder_Gate.TestC(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InC1,FullAdder_Gate.TestC(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InC2,FullAdder_Gate.TestC(),CableTypes.c1);
     }
     private void Add16_Gate_tests()
     {
-        // A
-        SearchAndPrintCable(ConnectorType.InA,Add16_Gate.TestA(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InA1,Add16_Gate.TestA1(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InA2,Add16_Gate.TestA2(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InA3,Add16_Gate.TestA3(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InA4,Add16_Gate.TestA4(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InA5,Add16_Gate.TestA5(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InA6,Add16_Gate.TestA6(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InA7,Add16_Gate.TestA7(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InA8,Add16_Gate.TestA8(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InA9,Add16_Gate.TestA9(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InA10,Add16_Gate.TestA10(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InA11,Add16_Gate.TestA11(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InA12,Add16_Gate.TestA12(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InA13,Add16_Gate.TestA13(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InA14,Add16_Gate.TestA14(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InA15,Add16_Gate.TestA15(),CableTypes.c1);
-        // B
-        SearchAndPrintCable(ConnectorType.InB,Add16_Gate.TestB(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InB1,Add16_Gate.TestB1(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InB2,Add16_Gate.TestB2(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InB3,Add16_Gate.TestB3(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InB4,Add16_Gate.TestB4(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InB5,Add16_Gate.TestB5(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InB6,Add16_Gate.TestB6(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InB7,Add16_Gate.TestB7(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InB8,Add16_Gate.TestB8(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InB9,Add16_Gate.TestB9(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InB10,Add16_Gate.TestB10(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InB11,Add16_Gate.TestB11(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InB12,Add16_Gate.TestB12(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InB13,Add16_Gate.TestB13(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InB14,Add16_Gate.TestB14(),CableTypes.c1);
-        // SearchAndPrintCable(ConnectorType.InB15,Add16_Gate.TestB15(),CableTypes.c1);
+        SearchAndPrintCable(ConnectorType.InA,Add16_Gate.TestA(),CableTypes.c16);
+        SearchAndPrintCable(ConnectorType.InB,Add16_Gate.TestB(),CableTypes.c16);
     }
-
+    private void InC16_Gate_tests()
+    {
+        SearchAndPrintCable(ConnectorType.InA,Inc16_Gate.TestA(),CableTypes.c16);
+        SearchAndPrintCable(ConnectorType.InB,Inc16_Gate.TestB(),CableTypes.c16);
+        SearchAndPrintCable(ConnectorType.InC,Inc16_Gate.TestC(),CableTypes.c16);
+    }
+    private void Or4Way_Gate_tests()
+    {
+        SearchAndPrintCable(ConnectorType.In,Or4Way_Gate.TestIN(),CableTypes.c16);
+    }
     void Start()
     {
         if(Name == LogicGates_Type.Not)
         {
             Not_Gate_tests();
         }
+        else if(Name == LogicGates_Type.Not16)
+        {
+            Not16_Gate_tests();
+        }
         else if(Name == LogicGates_Type.And)
         {
             And_Gate_tests();
         }
+        else if(Name == LogicGates_Type.Xor)
+        {
+            Xor_Gate_tests();
+        }
+        else if(Name == LogicGates_Type.Mux)
+        {
+            Mux_Gate_tests();
+        }
+        else if(Name == LogicGates_Type.Dmux)
+        {
+            Dmux_Gate_tests();
+        }
+        else if(Name == LogicGates_Type.And16)
+        {
+            And16_Gate_tests();
+        }
         else if(Name == LogicGates_Type.Or)
         {
             Or_Gate_tests();
+        }
+        else if(Name == LogicGates_Type.Or16)
+        {
+            Or16_Gate_tests();
+        }
+        else if(Name == LogicGates_Type.Or4Way)
+        {
+            Or4Way_Gate_tests();
         }
         else if (Name == LogicGates_Type.Mux4Way16)
         {
@@ -234,6 +250,10 @@ public class Test_WorkSpace : MonoBehaviour
         {
 
             Add16_Gate_tests();
+        }
+        else if (Name == LogicGates_Type.Inc16)
+        {
+            InC16_Gate_tests();
         }
         else 
         {
@@ -277,10 +297,10 @@ public class Test_WorkSpace : MonoBehaviour
         int count =0;
         for (int i=0; i<cableManagaer16TruthTables.Count ;i++)
         {
-            if (cableManagaer16TruthTables[i] != null && cableManagaer16TruthTables[i].cableManager.getConnectedCable() != null )
+            if (cableManagaer16TruthTables[i] != null  && cableManagaer16TruthTables[i].cableManagers.getSizeTruthTable() == 16)
             {
-                var actualTruthTable = cableManagaer16TruthTables[i].cableManager.getConnectedCable().GetTruthTable();
-                var cableManagerName= cableManagaer16TruthTables[i].cableManager.Name;
+                var actualTruthTable = cableManagaer16TruthTables[i].cableManagers.GetTruthTable();
+                var cableManagerName= cableManagaer16TruthTables[i].cableManagers.Name;
                 if(Name == LogicGates_Type.Mux4Way16 )
                 {
                     if(cableManagerName == ConnectorType.Out)
@@ -309,6 +329,103 @@ public class Test_WorkSpace : MonoBehaviour
                         // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
                     }
                 }
+                else if (Name == LogicGates_Type.Not16)
+                {
+                    if(cableManagerName == ConnectorType.Out)
+                    {
+                        if (!CheckTruth16Table(actualTruthTable, Not16_Gate.TestOUT()))
+                        {
+                            isSolves16=false;
+                            break;
+                        }
+                        count16++;
+                        isSolves16=true;
+                        // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
+                    }
+                }
+                else if (Name == LogicGates_Type.And16)
+                {
+                    if(cableManagerName == ConnectorType.Out)
+                    {
+                        if (!CheckTruth16Table(actualTruthTable, AND16_Gate.TestOUT()))
+                        {
+                            isSolves16=false;
+                            break;
+                        }
+                        count16++;
+                        isSolves16=true;
+                        // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
+                    }
+                }
+                else if (Name == LogicGates_Type.Inc16)
+                {
+                    if(cableManagerName == ConnectorType.Out)
+                    {
+                        if (!CheckTruth16Table(actualTruthTable, Inc16_Gate.TestOUT()))
+                        {
+                            isSolves16=false;
+                            break;
+                        }
+                        count16++;
+                        isSolves16=true;
+                        // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
+                    }
+                }
+                else if (Name == LogicGates_Type.Or16)
+                {
+                    if(cableManagerName == ConnectorType.Out)
+                    {
+                        if (!CheckTruth16Table(actualTruthTable, OR16_Gate.TestOUT()))
+                        {
+                            isSolves16=false;
+                            break;
+                        }
+                        count16++;
+                        isSolves16=true;
+                        // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
+                    }
+                }
+                else if (Name == LogicGates_Type.Add16)
+                {
+                    if(cableManagerName == ConnectorType.Out)
+                    {
+                        if (!CheckTruth16Table(actualTruthTable, Add16_Gate.TestOUT()))
+                        {
+                            isSolves16=false;
+                            break;
+                        }
+                        count16++;
+                        isSolves16=true;
+                        // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
+                    }
+                }
+                else
+                {
+                    Debug.Log($"i dont find {Name}  work space.");
+                } 
+            }
+        }
+        for (int i=0; i<cableManagaer16TruthTables.Count ;i++)
+        {
+            if (cableManagaer16TruthTables[i] != null  && cableManagaer16TruthTables[i].cableManagers.getSizeTruthTable() == 16)
+            {
+                var actualTruthTable = cableManagaer16TruthTables[i].cableManagers.GetTruthTable();
+                var cableManagerName= cableManagaer16TruthTables[i].cableManagers.Name;
+                if(Name == LogicGates_Type.Or4Way )
+                {
+                    if(cableManagerName == ConnectorType.Out)
+                    {
+                        if (!CheckTruth16Table(actualTruthTable, Or4Way_Gate.TestOUT()))
+                        {
+                            isSolves16=false;
+                            break;
+                        }
+                        count16++;
+                        isSolves16=true;
+                        // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
+                    }
+                }
+                
                 else
                 {
                     Debug.Log($"i dont find {Name}  work space.");
@@ -431,390 +548,6 @@ public class Test_WorkSpace : MonoBehaviour
                         Debug.Log($"i find {cableManagerName}  cableTruthTables.");
                     }
                 }
-                else if (Name == LogicGates_Type.Add16)
-                {
-                    if(cableManagerName == ConnectorType.Out)
-                    {
-                        if (!CheckTruthTable(actualTruthTable, Add16_Gate.TestOUT()))
-                        {
-                            isSolves=false;
-                            break;
-                        }
-                        count++;
-                        isSolves=true;
-                        // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    }
-                    // else if(cableManagerName == ConnectorType.Out1)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Add16_Gate.TestOUT1()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    // if(cableManagerName == ConnectorType.Out2)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Add16_Gate.TestOUT2()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    // else if(cableManagerName == ConnectorType.Out3)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Add16_Gate.TestOUT3()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    // if(cableManagerName == ConnectorType.Out4)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Add16_Gate.TestOUT4()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    // else if(cableManagerName == ConnectorType.Out5)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Add16_Gate.TestOUT5()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    // if(cableManagerName == ConnectorType.Out6)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Add16_Gate.TestOUT6()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    // else if(cableManagerName == ConnectorType.Out7)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Add16_Gate.TestOUT7()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    // if(cableManagerName == ConnectorType.Out8)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Add16_Gate.TestOUT8()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    // else if(cableManagerName == ConnectorType.Out9)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Add16_Gate.TestOUT9()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    // if(cableManagerName == ConnectorType.Out10)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Add16_Gate.TestOUT10()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    // else if(cableManagerName == ConnectorType.Out11)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Add16_Gate.TestOUT11()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    // else if(cableManagerName == ConnectorType.Out12)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Add16_Gate.TestOUT12()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    // else if(cableManagerName == ConnectorType.Out13)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Add16_Gate.TestOUT13()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    // else if(cableManagerName == ConnectorType.Out14)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Add16_Gate.TestOUT14()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    // else if(cableManagerName == ConnectorType.Out15)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Add16_Gate.TestOUT15()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    else
-                    {
-                        Debug.Log($"i do not find {cableManagerName}  cableTruthTables.");
-                    }
-                }
-                else if (Name == LogicGates_Type.Inc16)
-                {
-                    if(cableManagerName == ConnectorType.Out)
-                    {
-                        if (!CheckTruthTable(actualTruthTable, Inc16_Gate.TestOUT()))
-                        {
-                            isSolves=false;
-                            break;
-                        }
-                        count++;
-                        isSolves=true;
-                        // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    }
-                    // else if(cableManagerName == ConnectorType.Out1)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Inc16_Gate.TestOUT1()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    // if(cableManagerName == ConnectorType.Out2)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Inc16_Gate.TestOUT2()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    // else if(cableManagerName == ConnectorType.Out3)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Inc16_Gate.TestOUT3()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    // if(cableManagerName == ConnectorType.Out4)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Inc16_Gate.TestOUT4()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    // else if(cableManagerName == ConnectorType.Out5)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Inc16_Gate.TestOUT5()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    // if(cableManagerName == ConnectorType.Out6)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Inc16_Gate.TestOUT6()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    // else if(cableManagerName == ConnectorType.Out7)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Inc16_Gate.TestOUT7()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    // if(cableManagerName == ConnectorType.Out8)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Inc16_Gate.TestOUT8()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    // else if(cableManagerName == ConnectorType.Out9)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Inc16_Gate.TestOUT9()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    // if(cableManagerName == ConnectorType.Out10)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Inc16_Gate.TestOUT10()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    // else if(cableManagerName == ConnectorType.Out11)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Inc16_Gate.TestOUT11()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    // else if(cableManagerName == ConnectorType.Out12)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Inc16_Gate.TestOUT12()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    // else if(cableManagerName == ConnectorType.Out13)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Inc16_Gate.TestOUT13()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    // else if(cableManagerName == ConnectorType.Out14)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Inc16_Gate.TestOUT14()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    // else if(cableManagerName == ConnectorType.Out15)
-                    // {
-                    //     if (!CheckTruthTable(actualTruthTable, Inc16_Gate.TestOUT15()))
-                    //     {
-                    //         isSolves=false;
-                    //         break;
-                    //     }
-                    //     count++;
-                    //     isSolves=true;
-                    //     isSolves=true;
-                    //     // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
-                    // }
-                    else
-                    {
-                        Debug.Log($"i do not find {cableManagerName}  cableTruthTables.");
-                    }
-                }
                 else if (Name == LogicGates_Type.Not)
                 {
                     if(cableManagerName == ConnectorType.Out)
@@ -856,6 +589,24 @@ public class Test_WorkSpace : MonoBehaviour
                     if(cableManagerName == ConnectorType.Out)
                     {
                         if (!CheckTruthTable(actualTruthTable, OR_Gate.TestOut()[0].truthTable))
+                        {
+                            isSolves=false;
+                            break;
+                        }
+                        count++;
+                        isSolves=true;
+                        // Debug.Log($"i find {cableManagerName}  cableTruthTables.");
+                    }
+                    else
+                    {
+                        Debug.Log($"i do not find {cableManagerName}  cableTruthTables.");
+                    }
+                }
+                else if (Name == LogicGates_Type.Xor)
+                {
+                    if(cableManagerName == ConnectorType.Out)
+                    {
+                        if (!CheckTruthTable(actualTruthTable, Xor_Gate.TestOut()[0].truthTable))
                         {
                             isSolves=false;
                             break;
@@ -962,11 +713,11 @@ public class Test_WorkSpace : MonoBehaviour
         {
             for (int i=0; i<cable16TruthTables.Count ;i++)
             {
-                if (cable16TruthTables[i].cable != null)
+                if (cable16TruthTables[i].cables != null)
                 {
-                    if (Name == cable16TruthTables[i].cable.Name)
+                    if (Name == cable16TruthTables[i].cables.Name)
                     {
-                        // cable16TruthTables[i].cable.SetTruthTable(truthTable); 
+                        cable16TruthTables[i].cables.SetTruthTable(truthTable); 
                         break;
                     }
                 }

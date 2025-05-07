@@ -15,7 +15,7 @@ public class Cable : MonoBehaviour
     public Transform endPoint;   
     private bool isSelected =false;
     private Button button_cableManager =null;
-
+    private ButtonController_CableManager ButtonController;
     public void SetTargetConnector(CableManager value)
     {
         targetConnector = value;
@@ -120,9 +120,14 @@ public class Cable : MonoBehaviour
                     connectorCableManager.SetIsSelected(true);
                     connectorCableManager.SetSelectedCable(this);
                     connectorCableManager.ShowBitSelectionUI();
+                    ButtonController=connectorCableManager;
                 }
                 else
                 {
+                    if (ButtonController != null)
+                    {
+                        ButtonController.CloseBitSelectionUI();
+                    }
                     targetConnector = null;
                 }
             }
@@ -131,10 +136,14 @@ public class Cable : MonoBehaviour
         {
             if (isDragging && targetConnector != null)
             {
-                if (CableManager1 != null)
+                if (CableManager1 != null )
                 {
                     CableManager1.DisconnectCable();
                     CableManager1=null;
+                }
+                if (ButtonController != null)
+                {
+                    ButtonController.CloseBitSelectionUI();
                 }
                 lineRenderer.SetPosition(1, targetConnector.transform.position);
                 targetConnector.ConnectCable(this);

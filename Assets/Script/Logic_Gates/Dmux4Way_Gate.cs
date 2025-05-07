@@ -162,58 +162,24 @@ public class Dmux4Way_Gate : MonoBehaviour
 
         return result;
     }
-    public static List<Cable16bitTruthTable> TestIN_SEL0()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 0
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, false, true, true, false, false, true, true }));
-
-
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestIN_SEL1()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 1
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, true, false, true, false, true, false, true }));
-
-        return result;
-    }
 
     public static List<bool> TestA()
     {
-        // List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 0
-        // result.Add(new Cable16bitTruthTable(new List<bool> { false, false, false, false, true, false, false, false }));
-
         return new List<bool> { false, false, false, false, true, false, false, false };
     }
 
     public static List<bool> TestB()
     {
-        // List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // // Row 0
-        // result.Add(new Cable16bitTruthTable(new List<bool> { false, false, false, false, false, true, false, false }));
- 
-
         return new List<bool> { false, false, false, false, false, true, false, false };
     }
 
     public static List<bool> TestC()
     {
-        // List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // // Row 0
-        // result.Add(new Cable16bitTruthTable(new List<bool> { false, false, false, false, false, false, true, false }));
-
         return new List<bool> { false, false, false, false, false, false, true, false };
     }
 
     public static List<bool> TestD()
     {
-        // List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // // Row 0
-        // result.Add(new Cable16bitTruthTable(new List<bool> { false, false, false, false, false, false, false, true }));
-
         return new List<bool> { false, false, false, false, false, false, false, true };
     }
 

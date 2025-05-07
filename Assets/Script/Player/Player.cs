@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using TMPro;
-using UnityEditor.SearchService;
+// using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     private void Start()
     {
         playerHealthUI.text=$"Health: {HP}";
+        Application.targetFrameRate = 60;
+
     }
     public void TakeDamage(int damageAmount)
     {

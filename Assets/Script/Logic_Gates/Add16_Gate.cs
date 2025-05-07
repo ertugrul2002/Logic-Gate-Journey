@@ -80,328 +80,120 @@ public class Add16_Gate : MonoBehaviour
         
         
     }
-    public static List<Cable16bitTruthTable> TestA15()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 0
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, true,  false,  false}));
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestA14()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 1
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, false,  false,  false}));
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestA13()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 2
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, true,  true,  false}));
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestA12()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 3
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, false,  true,  true}));
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestA11()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 4
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, true,  true,  false}));
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestA10()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 5
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, false,  true,  false}));
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestA9()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 6
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, true,  false,  true}));
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestA8()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 7
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, false,  false,  false}));
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestA7()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 8
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, true,  true,  false}));
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestA6()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 9
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, false,  true,  false}));
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestA5()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 10
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, true,  false,  true}));
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestA4()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 11
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, false,  false,  true}));
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestA3()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 12
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, true,  false,  false}));
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestA2()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 13
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, false,  false,  true}));
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestA1()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 14
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, true,  true,  false}));
-        return result;
-    }
     public static List<Cable16bitTruthTable> TestA()
     {
         List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
         // Row 15
         result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, false,  true,  false}));
-        return result;
-    }
-
-
-    public static List<Cable16bitTruthTable> TestB15()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 0
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, false,  false,  true}));
-
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestB14()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 1
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, true,  false,  false}));
-
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestB13()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 2
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, false,  false,  false}));
-
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestB12()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 3
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, true,  false,  true}));
-
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestB11()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 4
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, false,  true,  true}));
-
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestB10()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 5
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, true,  true,  false}));
-
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestB9()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 6
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, false,  true,  false}));
-
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestB8()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 7
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, true,  true,  false}));
-
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestB7()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 8
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, false,  true,  false}));
-
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestB6()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 9
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, true,  true,  true}));
-
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestB5()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 10
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, false,  true,  true}));
-
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestB4()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 11
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, true,  true,  true}));
-
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestB3()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 12
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, false,  false,  false}));
-
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestB2()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 13
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, true,  false,  true}));
-
-        return result;
-    }
-    public static List<Cable16bitTruthTable> TestB1()
-    {
-        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
         // Row 14
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, false,  false,  true}));
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, true,  true,  false}));
+        // Row 13
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, false,  false,  true}));
+        // Row 12
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, true,  false,  false}));
+        // Row 11
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, false,  false,  true}));
+        // Row 10
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, true,  false,  true}));
+        // Row 9
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, false,  true,  false}));
+        // Row 8
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, true,  true,  false}));
+        // Row 7
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, false,  false,  false}));
+        // Row 6
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, true,  false,  true}));
+        // Row 5
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, false,  true,  false}));
+        // Row 4
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, true,  true,  false}));
+        // Row 3
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, false,  true,  true}));
+        // Row 2
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, true,  true,  false}));
+        // Row 1
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, false,  false,  false}));
+        // Row 0
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, false,true, true,  false,  false}));
 
         return result;
     }
+
     public static List<Cable16bitTruthTable> TestB()
     {
         List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
         // Row 15
         result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, true,  false,  false})); 
+        // Row 14
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, false,  false,  true}));
+        // Row 13
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, true,  false,  true}));
+        // Row 12
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, false,  false,  false}));
+        // Row 11
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, true,  true,  true}));
+        // Row 10
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, false,  true,  true}));
+        // Row 9
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, true,  true,  true}));
+        // Row 8
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, false,  true,  false}));
+        // Row 7
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, true,  true,  false}));
+        // Row 6
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, false,  true,  false}));
+        // Row 5
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, true,  true,  false}));
+        // Row 4
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, false,  true,  true}));
+        // Row 3
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, true,  false,  true}));
+        // Row 2
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, false,  false,  false}));
+        // Row 1
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, true,  false,  false}));
+        // Row 0
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, false,  false,  true}));
 
         return result;
     }
-
-    public static List<bool>  TestOUT15()
+    public static List<Cable16bitTruthTable>  TestOUT()
     {
-        // Row 0
-        return  new List<bool> { false, true,true, true,  false,  true} ;
-    }
-    public static List<bool>  TestOUT14()
-    {
-        // Row 1
-        return  new List<bool> { false, true,true, true,  true,  false};
-    }
-    public static List<bool>  TestOUT13()
-    {
-        // Row 2
-        return new List<bool> { false, true,true, true,  false,  true};
-    }
-    public static List<bool>  TestOUT12()
-    {
-        // Row 3
-        return new List<bool> { false, true,true, true,  false,  false};
-    }
-    public static List<bool>  TestOUT11()
-    {
-        // Row 4
-        return  new List<bool> { false, true,true, true,  true,  true};
-    }
-    public static List<bool>  TestOUT10()
-    {
-        // Row 5
-        return new List<bool> { false, true,true, true,  true,  false};
-    }
-    public static List<bool>  TestOUT9()
-    {
-        // Row 6
-        return new List<bool> { false, true,true, true,  false,  true};
-    }
-    public static List<bool>  TestOUT8()
-    {
-        // Row 7
-        return new List<bool> { false, true,true, true,  false,  false};
-    }
-    public static List<bool>  TestOUT7()
-    {
-        // Row 8
-        return new List<bool> { false, true,true, true,  true,  true};
-    }
-    public static List<bool>  TestOUT6()
-    {
-        // Row 9
-        return new List<bool> { false, true,true, true,  false,  false};
-    }
-    public static List<bool>  TestOUT5()
-    {
-        // Row 10
-        return new List<bool> { false, true,true, true,  true,  true};
-    }
-    public static List<bool> TestOUT4()
-    {
-        // Row 11
-        return new List<bool> { false, true,true, true,  true,  false};
-    }
-    public static List<bool>  TestOUT3()
-    {
-        // Row 12
-        return new List<bool> { false, true,true, true,  false,  true};
-    }
-    public static List<bool>  TestOUT2()
-    {
-        // Row 13
-        return new List<bool> { false, true,true, true,  false,  false};
-    }
-    public static List<bool>  TestOUT1()
-    {
-        // Row 14
-        return new List<bool> { false, true,true, true,  true,  true};
-    }
-    public static List<bool>  TestOUT()
-    {
+        List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
         // Row 15
-        return new List<bool> { false, true,false, true,  true,  false};
+        result.Add(new Cable16bitTruthTable(new  List<bool> { false, true,false, true,  true,  false}));
+        // Row 14
+        result.Add(new Cable16bitTruthTable(new  List<bool> { false, true,true, true,  true,  true}));
+        // Row 13
+        result.Add(new Cable16bitTruthTable(new  List<bool> { false, true,true, true,  false,  false}));
+        // Row 12
+        result.Add(new Cable16bitTruthTable(new  List<bool> { false, true,true, true,  false,  true}));
+        // Row 11
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, true,true, true,  true,  false}));
+        // Row 10
+        result.Add(new Cable16bitTruthTable(new  List<bool> { false, true,true, true,  true,  true}));
+        // Row 9
+        result.Add(new Cable16bitTruthTable(new  List<bool> { false, true,true, true,  false,  false}));
+        // Row 8
+        result.Add(new Cable16bitTruthTable(new  List<bool> { false, true,true, true,  true,  true}));
+        // Row 7
+        result.Add(new Cable16bitTruthTable(new  List<bool> { false, true,true, true,  false,  false}));
+        // Row 6
+        result.Add(new Cable16bitTruthTable(new  List<bool> { false, true,true, true,  false,  true}));
+        // Row 5
+        result.Add(new Cable16bitTruthTable(new  List<bool> { false, true,true, true,  true,  false}));
+        // Row 4
+        result.Add(new Cable16bitTruthTable(new  List<bool> { false, true,true, true,  true,  true}));
+        // Row 3
+        result.Add(new Cable16bitTruthTable(new  List<bool> { false, true,true, true,  false,  false}));
+        // Row 2
+        result.Add(new Cable16bitTruthTable(new  List<bool> { false, true,true, true,  false,  true}));
+        // Row 1
+        result.Add(new Cable16bitTruthTable(new  List<bool> { false, true,true, true,  true,  false}));
+        // Row 0
+        result.Add(new Cable16bitTruthTable(new  List<bool> { false, true,true, true,  false,  true}));
+
+        return result;
     }
 
 }

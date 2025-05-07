@@ -67,16 +67,30 @@ public class Or4Way_Gate  : MonoBehaviour
     public static List<Cable16bitTruthTable> TestIN()
     {
         List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
+        // Row 0
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, true, false, false, false}));
         // Row 1
-        result.Add(new Cable16bitTruthTable(new List<bool> { false, true}));
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, true, false, false, false}));
+        // Row 2
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, true, false, false, true}));
+        // Row 3
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, true, true, false, false}));
+        // Row 4
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, true, false, false, false}));
+        // Row 5
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, true, false, false, true}));
+        // Row 6
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, true, false, false, true}));
+        // Row 7
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, true, false, true, false}));
 
         return result;
     }
-    public static List<Cable16bitTruthTable> TestOut()
+    public static List<Cable16bitTruthTable> TestOUT()
     {
         List<Cable16bitTruthTable> result = new List<Cable16bitTruthTable>();
-        // Row 1
-        result.Add(new Cable16bitTruthTable(new List<bool> { true, false}));
+        // Row 0
+        result.Add(new Cable16bitTruthTable(new List<bool> { false, true, true, true, true}));
 
         return result;
     }
