@@ -407,7 +407,7 @@ public class Test_WorkSpace : MonoBehaviour
         }
         for (int i=0; i<cableManagaer16TruthTables.Count ;i++)
         {
-            if (cableManagaer16TruthTables[i] != null  && cableManagaer16TruthTables[i].cableManagers.getSizeTruthTable() == 16)
+            if (cableManagaer16TruthTables[i] != null  && cableManagaer16TruthTables[i].cableManagers.getSizeTruthTable() == 8)
             {
                 var actualTruthTable = cableManagaer16TruthTables[i].cableManagers.GetTruthTable();
                 var cableManagerName= cableManagaer16TruthTables[i].cableManagers.Name;
